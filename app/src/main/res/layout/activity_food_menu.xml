@@ -10,10 +10,10 @@
         android:weightSum="2">
 
     <Button
+        android:id="@+id/btnFood"
         android:textColor="@android:color/white"
         android:text="Order Food"
         android:textSize="20sp"
-        android:id="@+id/button1"
         android:layout_margin="20dp"
         android:padding="5dp"
         android:layout_marginLeft="20dp"
@@ -27,6 +27,7 @@
     </Button>
 
     <Button
+        android:id="@+id/btnDrinks"
         android:layout_marginRight="20dp"
         android:textSize="20sp"
         android:textColor="@android:color/white"
