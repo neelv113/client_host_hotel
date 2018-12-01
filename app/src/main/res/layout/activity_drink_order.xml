@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:textColor="@android:color/white"
         android:text="Wine Menu"
-        android:textSize="50sp">
+        android:textSize="50sp"
+        >
     </TextView>
 </LinearLayout>

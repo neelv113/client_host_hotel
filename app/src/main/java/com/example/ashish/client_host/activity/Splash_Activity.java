@@ -22,6 +22,6 @@ public class Splash_Activity extends AppCompatActivity {
                 startActivity(new Intent(Splash_Activity.this,FoodMenuActivity.class));
                 finish();
             }
-        },5000);
+        },20000);
     }
 }

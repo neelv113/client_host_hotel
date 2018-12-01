@@ -3,12 +3,13 @@ package com.example.ashish.client_host.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+
 import com.example.ashish.client_host.Adapter.ViewPagerAdapter;
-import com.example.ashish.client_host.fragment.FragmentMainActivity;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 
 import com.example.ashish.pre_booked_hotel.R;
 
@@ -17,6 +18,7 @@ public class FoodOrderActivity extends AppCompatActivity implements TabLayout.On
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
