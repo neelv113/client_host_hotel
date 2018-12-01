@@ -2,18 +2,17 @@ package com.example.ashish.client_host.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
-import com.example.ashish.client_host.Adapter.ViewPagerAdapter;
-import com.example.ashish.client_host.fragment.FragmentMainActivity;
-
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
+import com.example.ashish.client_host.Adapter.ViewPagerAdapter;
 import com.example.ashish.pre_booked_hotel.R;
 
-public class FoodOrderActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
+public class FoodOrderActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, ViewPager.OnPageChangeListener {
 
+    private static final String TAG = FoodOrderActivity.class.getSimpleName();
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
@@ -35,9 +34,9 @@ public class FoodOrderActivity extends AppCompatActivity implements TabLayout.On
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.addOnTabSelectedListener(this);
+
+        viewPager.addOnPageChangeListener(this);
     }
-
-
 
 
     @Override
@@ -53,6 +52,21 @@ public class FoodOrderActivity extends AppCompatActivity implements TabLayout.On
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onPageScrolled(int i, float v, int i1) {
+
+    }
+
+    @Override
+    public void onPageSelected(int i) {
+        tabLayout.getTabAt(i).select();
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int i) {
 
     }
 }
