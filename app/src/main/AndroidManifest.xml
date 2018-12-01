@@ -22,10 +22,6 @@
         </activity>
 
 
-        <activity android:name="com.example.ashish.client_host.activity.FoodOrderActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
         <activity android:name="com.example.ashish.client_host.activity.DrinkOrderActivity"
             android:screenOrientation="portrait">
         </activity>
