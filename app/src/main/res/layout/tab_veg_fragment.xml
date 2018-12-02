@@ -2,13 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#151515">
+    android:background="@android:color/holo_blue_light">
 
-    <TextView
+    <!--<TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:text="Veg Foods"
-        android:textSize="50sp"/>
+        android:textSize="50sp"/>-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerVeg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 
 </LinearLayout>
