@@ -3,14 +3,19 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentTop="true"
-    android:background="#151515">
+    android:background="@android:color/holo_blue_light">
 
-    <TextView
-        android:layout_width="match_parent"
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:text="Wine Menu"-->
+        <!--android:textSize="50sp"-->
+        <!--&gt;-->
+    <!--</TextView>-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerDrink"
         android:layout_height="match_parent"
-        android:textColor="@android:color/white"
-        android:text="Wine Menu"
-        android:textSize="50sp"
-        >
-    </TextView>
+        android:layout_width="match_parent"
+        />
 </LinearLayout>
