@@ -28,7 +28,7 @@ public class TabNonVegFragment extends Fragment {
     private void initViews(View view) {
         recyclerNonVeg = view.findViewById(R.id.recyclerNonVeg);
         recyclerNonVeg.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerNonVegAdapter = new RecyclerNonVegAdapter(getActivity());
+        recyclerNonVegAdapter = new RecyclerNonVegAdapter(this);
         recyclerNonVeg.setAdapter(recyclerNonVegAdapter);
 
     }

@@ -1,6 +1,7 @@
 package com.example.ashish.client_host.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,13 +14,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ashish.client_host.activity.FoodMenuActivity;
+import com.example.ashish.client_host.activity.FoodOrderActivity;
+import com.example.ashish.client_host.activity.GridRecyclerActivity;
+import com.example.ashish.client_host.fragment.TabNonVegFragment;
+import com.example.ashish.client_host.util.FragmentUtil;
 import com.example.ashish.pre_booked_hotel.R;
 
 import static android.content.ContentValues.TAG;
 
 public class RecyclerNonVegAdapter extends RecyclerView.Adapter<RecyclerNonVegAdapter.ViewHolder> {
-    private Context context;
-    public RecyclerNonVegAdapter(Context context) {
+    private TabNonVegFragment context;
+    public RecyclerNonVegAdapter(TabNonVegFragment context) {
         this.context = context;
     }
 
@@ -36,7 +42,8 @@ public class RecyclerNonVegAdapter extends RecyclerView.Adapter<RecyclerNonVegAd
         holder.txtView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,""+position,Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(FragmentUtil.getActivity(context),GridRecyclerActivity.class));
+               // Toast.makeText(context,""+position,Toast.LENGTH_SHORT).show();
             }
         });
     }

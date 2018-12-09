@@ -1,6 +1,7 @@
 package com.example.ashish.client_host.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,13 +11,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ashish.client_host.activity.DrinkOrderActivity;
+import com.example.ashish.client_host.activity.GridRecyclerActivity;
 import com.example.ashish.pre_booked_hotel.R;
 
 public class RecyclerDrinkAdapter extends RecyclerView.Adapter<RecyclerDrinkAdapter.ViewHolder> {
     private static final String TAG = RecyclerDrinkAdapter.class.getSimpleName();
-    private Context context;
+    private DrinkOrderActivity context;
 
-    public RecyclerDrinkAdapter(Context context)
+    public RecyclerDrinkAdapter(DrinkOrderActivity context)
     {
         this.context=context;
     }
@@ -33,7 +36,8 @@ public class RecyclerDrinkAdapter extends RecyclerView.Adapter<RecyclerDrinkAdap
         holder.txtView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,""+position,Toast.LENGTH_SHORT).show();
+            context.startActivity(new Intent(context,GridRecyclerActivity.class));
+                //Toast.makeText(context,""+position,Toast.LENGTH_SHORT).show();
             }
         });
 
