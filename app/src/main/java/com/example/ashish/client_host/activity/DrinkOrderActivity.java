@@ -20,6 +20,7 @@ public class DrinkOrderActivity extends AppCompatActivity {
         initViews();
     }
 
+
     private void initViews() {
         recyclerDrink = findViewById(R.id.recyclerDrink);
         recyclerDrink.setLayoutManager(new LinearLayoutManager(this));
