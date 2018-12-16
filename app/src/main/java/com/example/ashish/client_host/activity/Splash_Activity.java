@@ -18,20 +18,26 @@ import com.example.ashish.pre_booked_hotel.R;
 public class Splash_Activity extends AppCompatActivity {
     private static final String TAG =Splash_Activity.class.getSimpleName() ;
     private Activity context;
+    String fixssid="\"S_Way\"";
+
 
     protected void onCreate(@Nullable Bundle savedInstance)
     {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_splash);
+        String ssid=getCurrentSsid(this);
+        Log.d(TAG, "Ssid "+ssid);
 
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                startActivity(new Intent(Splash_Activity.this,FoodMenuActivity.class));
-//                finish();
-//            }
-//        },2000);
-        getCurrentSsid(this);
+        Log.d(TAG, "onCreate_a: "+ssid+"__"+fixssid);
+        if(fixssid.contains(ssid)) {
+            new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+               startActivity(new Intent(Splash_Activity.this,FoodMenuActivity.class));
+               finish();
+           }
+        },2000);
+        }
     }
 
     public String getCurrentSsid(Context context) {
