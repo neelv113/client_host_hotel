@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-
-
 import com.example.ashish.client_host.Adapter.RecyclerDrinkAdapter;
 import com.example.ashish.pre_booked_hotel.R;
 
@@ -19,14 +17,12 @@ public class DrinkOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_drink_order);
         initViews();
     }
-    
+
     private void initViews() {
         recyclerDrink = findViewById(R.id.recyclerDrink);
         recyclerDrink.setLayoutManager(new LinearLayoutManager(this));
         recyclerDrinkAdapter = new RecyclerDrinkAdapter(this);
         recyclerDrink.setAdapter(recyclerDrinkAdapter);
     }
-
-
 }
 

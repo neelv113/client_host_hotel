@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,10 +53,12 @@ public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegView
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView txtView;
+        private ImageView vegImg;
 
         public ViewHolder(View itemView) {
             super(itemView);
             txtView = itemView.findViewById(R.id.txtView);
+            vegImg = itemView.findViewById(R.id.vegImg);
         }
 
         public void setData(int position) {
@@ -64,4 +67,3 @@ public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegView
         }
     }
     }
-
