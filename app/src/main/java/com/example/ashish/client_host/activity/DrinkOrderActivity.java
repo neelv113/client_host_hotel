@@ -19,8 +19,7 @@ public class DrinkOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_drink_order);
         initViews();
     }
-
-
+    
     private void initViews() {
         recyclerDrink = findViewById(R.id.recyclerDrink);
         recyclerDrink.setLayoutManager(new LinearLayoutManager(this));
