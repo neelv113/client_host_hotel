@@ -18,7 +18,7 @@ import com.example.ashish.pre_booked_hotel.R;
 public class Splash_Activity extends AppCompatActivity {
     private static final String TAG =Splash_Activity.class.getSimpleName() ;
     private Activity context;
-    String fixssid="\"Vyas\"";
+    String fixssid="\"No internet\"";
 
 
     protected void onCreate(@Nullable Bundle savedInstance)
