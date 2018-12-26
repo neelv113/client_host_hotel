@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,10 +56,12 @@ public class RecyclerNonVegAdapter extends RecyclerView.Adapter<RecyclerNonVegAd
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView txtView;
+        Layout layout;
 
         public ViewHolder(View itemView) {
             super(itemView);
             txtView = itemView.findViewById(R.id.txtView);
+
         }
 
         public void setData(int position) {
