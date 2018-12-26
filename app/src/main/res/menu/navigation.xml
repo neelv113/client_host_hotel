@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:title="HOME"
+        android:icon="@mipmap/home">
+    </item>
+
+    <item android:id="@+id/myOrder"
+        android:title="MY ORDERS"
+        android:icon="@mipmap/myorder">
+    </item>
+
+    <item android:id="@+id/rateApp"
+        android:title="RATING"
+        android:icon="@mipmap/rating">
+    </item>
+
+    <item android:id="@+id/about"
+        android:title="ABOUT"
+        android:icon="@mipmap/about">
+    </item>
+
+    <item android:id="@+id/help"
+        android:title="HELP"
+        android:icon="@mipmap/help">
+    </item>
+
+    <item android:id="@+id/contact"
+        android:title="CONTACT"
+        android:icon="@mipmap/contact">
+    </item>
+
+    <item android:id="@+id/logout"
+        android:title="LOGOUT"
+        android:icon="@mipmap/logout">
+    </item>
+</menu>
