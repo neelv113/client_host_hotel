@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#151515"
+    tools:context=".activity.ToolbarHomeActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For any Queries related to food or drinks please ask with any of the waiters or with respected manager.
+        \n\nWe are sure that your query or problem will be definitely get solved by our team within few minutes.
+        \n\nWe will be sure that next time the same won't be repeated again."
+        android:gravity="left"
+        android:textSize="30sp"
+        android:textColor="@android:color/white">
+    </TextView>
+
+</LinearLayout>

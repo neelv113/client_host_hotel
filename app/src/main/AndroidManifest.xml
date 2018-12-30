@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
@@ -21,24 +20,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.ashish.client_host.activity.FoodOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.ashish.client_host.activity.FoodMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.ashish.client_host.activity.DrinkOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.ashish.client_host.activity.GridRecyclerActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name="com.example.ashish.client_host.activity.FoodOrderActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name="com.example.ashish.client_host.activity.ToolbarMyOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.ashish.client_host.activity.ToolbarAboutActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.example.ashish.client_host.activity.ToolbarContactActivity" />
 
-        <activity android:name="com.example.ashish.client_host.activity.FoodMenuActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity android:name="com.example.ashish.client_host.activity.ToolbarRatingActivity" />
 
-
-        <activity android:name="com.example.ashish.client_host.activity.DrinkOrderActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name="com.example.ashish.client_host.activity.GridRecyclerActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-
+        <activity android:name="com.example.ashish.client_host.activity.ToolbarHelpActivity"></activity>
     </application>
 
 </manifest>

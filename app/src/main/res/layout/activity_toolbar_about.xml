@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#151515"
+    tools:context=".activity.ToolbarAboutActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About us \n\nThis application is a food application where you can interact with the application
+to order your food without interaction with waiter. \n\nOur restaurant was inaugrated in 2015 with it's first branch in mumbai.
+\n\nLater we have established our branches in Delhi,Chennai and Punjab. \n\nWe have more than 10k customers in mumbai branch.
+\n\nTo know more or to contact us please go to the contact section where you will find all contact details about us.
+\n\n\t\t\t\tThank You!"
+        android:gravity="left"
+        android:textSize="23sp"
+        android:textColor="@android:color/white">
+    </TextView>
+
+
+</LinearLayout>

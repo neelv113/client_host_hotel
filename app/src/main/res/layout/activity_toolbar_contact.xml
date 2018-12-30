@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#151515"
+    tools:context=".activity.ToolbarHomeActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact us on :\n\n\nLandline : 022-12345678 / 022-21436579\n\n\nWhat's app : 5672895056\n\n\nContact us any time between\n10 a.m. to 10 p.m."
+        android:gravity="left"
+        android:textSize="25sp"
+        android:textColor="@android:color/white">
+    </TextView>
+
+
+
+</LinearLayout>
