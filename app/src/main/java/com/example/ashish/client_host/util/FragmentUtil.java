@@ -11,6 +11,7 @@ public class FragmentUtil {
         return fragment.getClass().getSimpleName();
     }
 
+
     public static String getTag(Class<? extends Fragment> fragmentClass) {
         return fragmentClass.getSimpleName();
     }

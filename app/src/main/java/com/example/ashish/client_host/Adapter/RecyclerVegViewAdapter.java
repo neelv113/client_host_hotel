@@ -1,6 +1,6 @@
 package com.example.ashish.client_host.Adapter;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,16 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.ashish.client_host.activity.FoodMenuActivity;
-import com.example.ashish.client_host.activity.FoodOrderActivity;
 import com.example.ashish.client_host.activity.GridRecyclerActivity;
 import com.example.ashish.client_host.fragment.TabVegFragment;
 import com.example.ashish.client_host.util.FragmentUtil;
 import com.example.ashish.pre_booked_hotel.R;
 
 public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegViewAdapter.ViewHolder> {
+
+
     private static final String TAG = RecyclerVegViewAdapter.class.getSimpleName();
     private TabVegFragment context;
 
@@ -29,8 +28,10 @@ public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegView
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.veg_view, parent, false);
         return new ViewHolder(view);
+
+
 
     }
 
@@ -55,6 +56,15 @@ public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegView
         private TextView txtView;
         private ImageView vegImg;
 
+//        public void setDetails(Context context,String imgUrl,String name)
+//        {
+//            txtView = itemView.findViewById(R.id.txtView);
+//            vegImg = itemView.findViewById(R.id.vegImg);
+//
+//            txtView.setText(name);
+//            Picasso.get().load(imgUrl).into(vegImg);
+//        }
+
         public ViewHolder(View itemView) {
             super(itemView);
             txtView = itemView.findViewById(R.id.txtView);
@@ -66,4 +76,4 @@ public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegView
             txtView.setText("" + position);
         }
     }
-    }
+}

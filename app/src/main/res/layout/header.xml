@@ -5,4 +5,5 @@
     android:layout_height="150dp"
     android:background="@drawable/kitchen">
 
+
 </LinearLayout>

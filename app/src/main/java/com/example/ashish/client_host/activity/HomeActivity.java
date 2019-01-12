@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import com.example.ashish.pre_booked_hotel.R;
 
 public class HomeActivity extends BaseActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

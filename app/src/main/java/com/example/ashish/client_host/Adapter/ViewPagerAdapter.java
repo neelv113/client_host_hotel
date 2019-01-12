@@ -9,6 +9,7 @@ import com.example.ashish.client_host.fragment.TabVegFragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
+
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }

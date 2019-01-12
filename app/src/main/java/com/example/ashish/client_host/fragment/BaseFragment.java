@@ -10,6 +10,7 @@ public class BaseFragment extends Fragment {
 
     private Activity activityRef;
 
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

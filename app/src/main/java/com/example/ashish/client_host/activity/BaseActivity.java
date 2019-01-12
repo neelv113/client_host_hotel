@@ -15,6 +15,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
+
     public void addFragment(int containerViewId, BaseFragment baseFragment, String tag, boolean addToBackStack) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(containerViewId, baseFragment, tag);

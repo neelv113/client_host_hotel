@@ -13,6 +13,7 @@ public class GridRecyclerActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerGridAdapter recyclerGridAdapter;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

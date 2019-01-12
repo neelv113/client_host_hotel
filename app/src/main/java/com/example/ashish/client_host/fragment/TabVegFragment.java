@@ -24,7 +24,6 @@ public class TabVegFragment extends Fragment {
         return view;
     }
 
-
         private void initViews(View view) {
             recyclerVeg = view.findViewById(R.id.recyclerVeg);
             recyclerVeg.setLayoutManager(new LinearLayoutManager(getActivity()));

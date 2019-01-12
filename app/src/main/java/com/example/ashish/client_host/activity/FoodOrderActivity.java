@@ -16,6 +16,7 @@ public class FoodOrderActivity extends AppCompatActivity implements TabLayout.On
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

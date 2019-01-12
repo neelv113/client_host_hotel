@@ -16,7 +16,7 @@ to order your food without interaction with waiter. \n\nOur restaurant was inaug
 \n\nTo know more or to contact us please go to the contact section where you will find all contact details about us.
 \n\n\t\t\t\tThank You!"
         android:gravity="left"
-        android:textSize="23sp"
+        android:textSize="20sp"
         android:textColor="@android:color/white">
     </TextView>
 

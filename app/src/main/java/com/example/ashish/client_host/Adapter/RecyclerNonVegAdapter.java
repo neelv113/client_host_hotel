@@ -1,11 +1,8 @@
 package com.example.ashish.client_host.Adapter;
 
-import android.content.Context;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.util.Log;
@@ -13,10 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.ashish.client_host.activity.FoodMenuActivity;
-import com.example.ashish.client_host.activity.FoodOrderActivity;
 import com.example.ashish.client_host.activity.GridRecyclerActivity;
 import com.example.ashish.client_host.fragment.TabNonVegFragment;
 import com.example.ashish.client_host.util.FragmentUtil;
@@ -34,7 +28,7 @@ public class RecyclerNonVegAdapter extends RecyclerView.Adapter<RecyclerNonVegAd
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.nonveg_view, parent, false);
         return new ViewHolder(view);
     }
     public void onBindViewHolder(@Nullable ViewHolder holder,final int position)
