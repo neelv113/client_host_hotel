@@ -6,14 +6,14 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/vegImg"
-        android:layout_height="wrap_content"
+        android:id="@+id/nonVegImg"
+        android:layout_height="200dp"
         android:layout_width="match_parent"
         android:src="@mipmap/ic_launcher"
         />
 
     <TextView
-        android:id="@+id/txtView"
+        android:id="@+id/nonVegTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"/>

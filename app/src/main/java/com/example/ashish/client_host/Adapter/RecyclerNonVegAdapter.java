@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ashish.client_host.activity.GridRecyclerActivity;
@@ -34,7 +35,7 @@ public class RecyclerNonVegAdapter extends RecyclerView.Adapter<RecyclerNonVegAd
     public void onBindViewHolder(@Nullable ViewHolder holder,final int position)
     {
         holder.setData(position);
-        holder.txtView.setOnClickListener(new View.OnClickListener() {
+        holder.nonVegTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 context.startActivity(new Intent(FragmentUtil.getActivity(context),GridRecyclerActivity.class));
@@ -49,18 +50,18 @@ public class RecyclerNonVegAdapter extends RecyclerView.Adapter<RecyclerNonVegAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtView;
+        private TextView nonVegTextView;
         Layout layout;
-
+        private ImageView imgView;
         public ViewHolder(View itemView) {
             super(itemView);
-            txtView = itemView.findViewById(R.id.txtView);
-
+            nonVegTextView = itemView.findViewById(R.id.nonVegTxt);
+            imgView = itemView.findViewById(R.id.nonVegImg);
         }
 
         public void setData(int position) {
             Log.d(TAG,"setData:" +position);
-            txtView.setText("" + position);
+            nonVegTextView.setText("" + position);
         }
     }
 }

@@ -31,5 +31,8 @@ public class TabVegFragment extends Fragment {
             recyclerVeg.setAdapter(recyclerVegAdapter);
         }
 
-
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
 }

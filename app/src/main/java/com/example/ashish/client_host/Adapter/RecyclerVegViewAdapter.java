@@ -17,8 +17,6 @@ import com.example.ashish.client_host.util.FragmentUtil;
 import com.example.ashish.pre_booked_hotel.R;
 
 public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegViewAdapter.ViewHolder> {
-
-
     private static final String TAG = RecyclerVegViewAdapter.class.getSimpleName();
     private TabVegFragment context;
 
@@ -31,14 +29,12 @@ public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegView
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.veg_view, parent, false);
         return new ViewHolder(view);
 
-
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.setData(position);
-        holder.txtView.setOnClickListener(new View.OnClickListener() {
+        holder.vegTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 context.startActivity(new Intent(FragmentUtil.getActivity(context),GridRecyclerActivity.class));
@@ -53,27 +49,18 @@ public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegView
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView txtView;
-        private ImageView vegImg;
-
-//        public void setDetails(Context context,String imgUrl,String name)
-//        {
-//            txtView = itemView.findViewById(R.id.txtView);
-//            vegImg = itemView.findViewById(R.id.vegImg);
-//
-//            txtView.setText(name);
-//            Picasso.get().load(imgUrl).into(vegImg);
-//        }
+        private TextView vegTextView;
+        private ImageView vegFoodImg;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            txtView = itemView.findViewById(R.id.txtView);
-            vegImg = itemView.findViewById(R.id.vegImg);
+            vegTextView = itemView.findViewById(R.id.vegTxt);
+            vegFoodImg = itemView.findViewById(R.id.vegImg);
         }
 
         public void setData(int position) {
             Log.d(TAG, "setData: "+position);
-            txtView.setText("" + position);
+            vegTextView.setText("" + position);
         }
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.ashish.client_host.Adapter.RecyclerDrinkAdapter;
 import com.example.ashish.client_host.Holder.ViewHolder;
@@ -14,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DrinkOrderActivity extends AppCompatActivity {
+    private static final String TAG = DrinkOrderActivity.class.getSimpleName();
     private RecyclerView recyclerDrink;
     private RecyclerDrinkAdapter recyclerDrinkAdapter;
     FirebaseDatabase database;
@@ -27,6 +29,8 @@ public class DrinkOrderActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Data");
+      //  Log.d(TAG, "myRef:"+myRef);
+
     }
 
     @Override
@@ -43,7 +47,7 @@ public class DrinkOrderActivity extends AppCompatActivity {
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Data model, int position) {
-
+//                        Log.d(TAG, "populateViewHolder:");
                         viewHolder.setDetails(getApplicationContext(),model.getImgUrl(),model.getName());
                     }
                 };
@@ -57,4 +61,3 @@ public class DrinkOrderActivity extends AppCompatActivity {
         recyclerDrink.setAdapter(recyclerDrinkAdapter);
     }
 }
-
