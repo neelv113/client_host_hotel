@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "1024084870239",
+    "firebase_url": "https://typroject-93943.firebaseio.com",
+    "project_id": "typroject-93943",
+    "storage_bucket": "typroject-93943.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024084870239:android:201c78aac83a77b5",
+        "android_client_info": {
+          "package_name": "com.example.ashish.client_host"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024084870239-8v4lk3fv1jjf36jbjasb2cessfcug1gh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ashish.client_host",
+            "certificate_hash": "671baca3e76ea862149fb34eef82f776968908c1"
+          }
+        },
+        {
+          "client_id": "1024084870239-uo6duhjd4qitprk8srn2jt4irht6emri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ashish.client_host",
+            "certificate_hash": "26476930fa5d38b7e9ff189e26564f617a84ae0b"
+          }
+        },
+        {
+          "client_id": "1024084870239-e70ov822qi9dt1l8n6au91tka2e16n5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCls6i8cvv7ei0z494HeIg-m-l2aEDLsng"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024084870239-e70ov822qi9dt1l8n6au91tka2e16n5h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

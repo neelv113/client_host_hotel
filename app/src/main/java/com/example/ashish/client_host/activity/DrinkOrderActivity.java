@@ -28,7 +28,7 @@ public class DrinkOrderActivity extends AppCompatActivity {
         initViews();
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Data");
+        myRef = database.getReference("Drinks");
       //  Log.d(TAG, "myRef:"+myRef);
 
     }
