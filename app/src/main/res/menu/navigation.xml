@@ -4,31 +4,34 @@
 
     <item
         android:id="@+id/home"
-        android:title="HOME"></item>
+        android:title="HOME"
+        android:icon="@drawable/home">
+    </item>
 
     <item android:id="@+id/myOrder"
         android:title="MY ORDERS"
-        >
+        android:icon="@drawable/cart">
     </item>
 
     <item
         android:id="@+id/contact"
-
-        android:title="CONTACT"></item>
+        android:title="CONTACT"
+        android:icon="@drawable/contact">
+    </item>
 
     <item android:id="@+id/rateApp"
         android:title="RATING"
-        >
+        android:icon="@drawable/rating">
     </item>
 
     <item android:id="@+id/about"
         android:title="ABOUT"
-        >
+        android:icon="@drawable/about">
     </item>
 
     <item android:id="@+id/help"
         android:title="HELP"
-       >
+        android:icon="@drawable/help">
     </item>
 
 </menu>
