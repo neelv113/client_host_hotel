@@ -27,22 +27,22 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         textView.setText(name);
         Picasso.get().load(imgUrl).into(imageView);
     }
-//    public void setVegFoodDetails(Context context,String vegFoodUrl,String vegName)
-//    {
-//        TextView vegTextView = view.findViewById(R.id.vegTxt);
-//        ImageView vegImageView = view.findViewById(R.id.vegImg);
-//
-//        vegTextView.setText(vegName);
-//        Picasso.get().load(vegFoodUrl).into(vegImageView);
-//    }
-//
-//    public void setNonVegFoodDetails(Context context,String nonVegFoodUrl,String nonVegName)
-//    {
-//        TextView nonVegTextView = view.findViewById(R.id.nonVegTxt);
-//        ImageView nonVegImageView = view.findViewById(R.id.nonVegImg);
-//
-//        nonVegTextView.setText(nonVegName);
-//        Picasso.get().load(nonVegFoodUrl).into(nonVegImageView);
-//    }
+    public void setVegFoodDetails(Context ctx,String foodUrl,String foodName)
+    {
+        TextView vegTextView = view.findViewById(R.id.vegTxt);
+        ImageView vegImageView = view.findViewById(R.id.vegImg);
+
+        vegTextView.setText(foodName);
+        Picasso.get().load(foodUrl).into(vegImageView);
+    }
+
+    public void setNonVegFoodDetails(Context context,String nonVegUrl,String nonVegName)
+    {
+        TextView nonVegTextView = view.findViewById(R.id.nonVegTxt);
+        ImageView nonVegImageView = view.findViewById(R.id.nonVegImg);
+
+        nonVegTextView.setText(nonVegName);
+        Picasso.get().load(nonVegUrl).into(nonVegImageView);
+    }
 }
 
