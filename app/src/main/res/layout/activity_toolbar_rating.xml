@@ -1,20 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#151515"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
     tools:context=".activity.ToolbarHomeActivity">
 
 
     <TextView
+        android:id="@+id/feedbackText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rate our application"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Kindly rate our services"
         android:gravity="center"
-        android:textSize="50sp"
-        android:textColor="@android:color/white">
+        android:textSize="30sp"
+        android:textColor="@android:color/black">
     </TextView>
 
-</LinearLayout>
+    <RatingBar
+        android:layout_below="@id/feedbackText"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/Rating"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp">
+    </RatingBar>
+
+    <TextView
+        android:layout_below="@id/Rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RatingText"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:text="Value is : "
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp">
+    </TextView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+    <Button
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:text="Submit"
+        android:textSize="30dp"
+        android:textAllCaps="false"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/round_edge">
+    </Button>
+    </LinearLayout>
+</RelativeLayout>
+
