@@ -4,7 +4,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.ashish.pre_booked_hotel.R;
@@ -44,5 +46,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         nonVegTextView.setText(nonVegName);
         Picasso.get().load(nonVegUrl).into(nonVegImageView);
     }
+//    public void setRating(Context context,float rating)
+//    {
+//        RatingBar ratingBar = view.findViewById(R.id.Rating);
+//        ratingBar.setRating(rating);
+//    }
+//    public void setContact(Context context,String contact)
+//    {
+//        EditText editText = view.findViewById(R.id.contactNumber);
+//        editText.setText(contact);
+//    }
 }
-

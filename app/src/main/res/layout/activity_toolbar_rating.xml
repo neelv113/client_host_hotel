@@ -30,18 +30,18 @@
         android:layout_marginTop="10dp">
     </RatingBar>
 
-    <TextView
+    <EditText
+        android:id="@+id/contactNumber"
+        android:inputType="number"
+        android:maxLength="10"
+        android:layout_marginTop="25dp"
+        android:hint="Enter your Mobile number"
         android:layout_below="@id/Rating"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/RatingText"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
-        android:text="Value is : "
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp">
-    </TextView>
-
+        android:layout_width="match_parent"
+        android:textSize="25dp"
+        android:textColor="@android:color/black">
+    </EditText>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,6 +51,7 @@
         android:weightSum="1">
 
     <Button
+        android:id="@+id/feedbackButton"
         android:backgroundTint="@android:color/holo_blue_light"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
