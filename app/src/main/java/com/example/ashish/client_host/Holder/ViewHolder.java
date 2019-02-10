@@ -17,7 +17,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     View view;
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
-
         view = itemView;
     }
 
