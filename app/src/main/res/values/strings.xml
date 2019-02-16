@@ -2,4 +2,13 @@
     <string name="app_name">Client_host</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="title_activity_all_eatables">AllEatablesActivity</string>
+
+    <string-array name="veg_foods_categories">
+        <item>Spicy Biryani</item>
+        <item>Pahadi Biryani</item>
+        <item>Special Biryani</item>
+        <item>Sweet Biryani</item>
+    </string-array>
+
 </resources>

@@ -17,10 +17,11 @@
 
     <ImageView
         android:id="@+id/drinkImg"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:layout_width="match_parent"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
+
         />
 
     <TextView
@@ -29,6 +30,12 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:padding="20dp"/>
+
+        <!--<Spinner-->
+            <!--android:id="@+id/drinkSpinner"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+        <!--</Spinner>-->
 
     <View
         android:layout_width="match_parent"

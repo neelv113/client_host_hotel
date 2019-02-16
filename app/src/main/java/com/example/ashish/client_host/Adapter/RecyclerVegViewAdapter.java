@@ -37,6 +37,7 @@ public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegView
         holder.vegTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 context.startActivity(new Intent(FragmentUtil.getActivity(context),GridRecyclerActivity.class));
                 //Toast.makeText(context,""+position,Toast.LENGTH_SHORT).show();
             }

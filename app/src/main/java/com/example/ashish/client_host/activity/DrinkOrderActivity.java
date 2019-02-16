@@ -1,10 +1,13 @@
 package com.example.ashish.client_host.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.example.ashish.client_host.Adapter.RecyclerDrinkAdapter;
 import com.example.ashish.client_host.Holder.ViewHolder;
@@ -13,6 +16,8 @@ import com.example.ashish.pre_booked_hotel.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.List;
 
 public class DrinkOrderActivity extends AppCompatActivity {
     private static final String TAG = DrinkOrderActivity.class.getSimpleName();
@@ -30,7 +35,6 @@ public class DrinkOrderActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Drinks");
       //  Log.d(TAG, "myRef:"+myRef);
-
     }
 
     @Override
@@ -50,6 +54,18 @@ public class DrinkOrderActivity extends AppCompatActivity {
 //                        Log.d(TAG, "populateViewHolder:");
                         viewHolder.setDetails(getApplicationContext(),model.getImgUrl(),model.getName());
                     }
+
+                    @Override
+                    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+                        super.onBindViewHolder(viewHolder, position);
+                        viewHolder.getViewLayout().setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent= new Intent(DrinkOrderActivity.this,AllEatablesActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                    }
                 };
         recyclerDrink.setAdapter(firebaseRecyclerAdapter);
         }
@@ -60,4 +76,7 @@ public class DrinkOrderActivity extends AppCompatActivity {
         recyclerDrinkAdapter = new RecyclerDrinkAdapter(this);
         recyclerDrink.setAdapter(recyclerDrinkAdapter);
     }
-}
+
+//    public static Context getActivity(DrinkOrderActivity context) {
+//    return context;
+    }
