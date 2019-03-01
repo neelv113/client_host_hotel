@@ -28,12 +28,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import static android.support.constraint.Constraints.TAG;
 
 public class TabVegFragment extends Fragment{
-        //implements AdapterView.OnItemSelectedListener{
+
     private RecyclerView recyclerVeg;
     private RecyclerVegViewAdapter recyclerVegAdapter;
     FirebaseDatabase database;
     DatabaseReference reference;
-    Spinner spinner;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,14 +40,8 @@ public class TabVegFragment extends Fragment{
         View view = inflater.inflate(R.layout.tab_veg_fragment, container, false);
         initViews(view);
 
-
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("VegFoods");
-//
-//        Log.d(TAG, "onCreateView: ");
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),R.array.veg_foods_categories,R.layout.support_simple_spinner_dropdown_item);
-//        spinner.setOnItemSelectedListener(this);
-//        spinner.setAdapter(adapter);
 
         return view;
     }
@@ -98,16 +91,4 @@ public class TabVegFragment extends Fragment{
         recyclerVegAdapter = new RecyclerVegViewAdapter(this);
         recyclerVeg.setAdapter(recyclerVegAdapter);
     }
-
-    //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),R.array.veg_foods_categories,R.layout.support_simple_spinner_dropdown_item);
-
-//    @Override
-//    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//    }
 }

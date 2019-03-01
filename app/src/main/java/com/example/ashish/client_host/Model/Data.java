@@ -55,5 +55,4 @@ public class Data {
         this.name = name;
     }
 
-
 }

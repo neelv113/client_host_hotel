@@ -24,6 +24,11 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private LinearLayout viewVegLayout;
     private LinearLayout viewNonVegLayout;
     private String foodName;
+    private String nonVegFoodName;
+
+    public String getNonVegFoodName() {
+        return nonVegFoodName;
+    }
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -58,7 +63,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     {
         TextView nonVegTextView = view.findViewById(R.id.nonVegTxt);
         ImageView nonVegImageView = view.findViewById(R.id.nonVegImg);
-
+        this.nonVegFoodName = nonVegName;
         nonVegTextView.setText(nonVegName);
         Picasso.get().load(nonVegUrl).into(nonVegImageView);
     }

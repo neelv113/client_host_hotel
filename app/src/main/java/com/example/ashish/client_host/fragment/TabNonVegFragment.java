@@ -58,15 +58,18 @@ public class TabNonVegFragment extends Fragment {
                     }
 
                     @Override
-                    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+                    public void onBindViewHolder(final ViewHolder viewHolder, int position) {
                         Log.d(TAG, "onBindViewHolder1:");
                         super.onBindViewHolder(viewHolder, position);
                         viewHolder.getViewNonVegLayout().setOnClickListener(new View.OnClickListener() {
 
                             @Override
                             public void onClick(View view) {
-                                Log.d(TAG, "onClick:");
+                                Log.d(TAG, "onEnterNonVeg: "+viewHolder.getNonVegFoodName());
                                 Intent intent = new Intent(getActivity().getBaseContext(),AllEatablesActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putString("food",viewHolder.getNonVegFoodName());
+                                intent.putExtras(bundle);
                                 startActivity(intent);
                             }
                         });

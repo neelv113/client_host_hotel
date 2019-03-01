@@ -58,13 +58,13 @@ public class DrinkOrderActivity extends AppCompatActivity {
                     @Override
                     public void onBindViewHolder(ViewHolder viewHolder, int position) {
                         super.onBindViewHolder(viewHolder, position);
-                        viewHolder.getViewLayout().setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent= new Intent(DrinkOrderActivity.this,AllEatablesActivity.class);
-                                startActivity(intent);
-                            }
-                        });
+//                        viewHolder.getViewLayout().setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                Intent intent= new Intent(DrinkOrderActivity.this,AllEatablesActivity.class);
+//                                startActivity(intent);
+//                            }
+//                        });
                     }
                 };
         recyclerDrink.setAdapter(firebaseRecyclerAdapter);
@@ -76,7 +76,4 @@ public class DrinkOrderActivity extends AppCompatActivity {
         recyclerDrinkAdapter = new RecyclerDrinkAdapter(this);
         recyclerDrink.setAdapter(recyclerDrinkAdapter);
     }
-
-//    public static Context getActivity(DrinkOrderActivity context) {
-//    return context;
-    }
+}
