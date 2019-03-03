@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.example.ashish.client_host.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -42,7 +43,8 @@
         <activity android:name="com.example.ashish.client_host.activity.ToolbarContactActivity" />
         <activity android:name="com.example.ashish.client_host.activity.ToolbarRatingActivity" />
         <activity android:name="com.example.ashish.client_host.activity.ToolbarHelpActivity" />
-        <activity android:name="com.example.ashish.client_host.activity.AllEatablesActivity"></activity>
+        <activity android:name="com.example.ashish.client_host.activity.AllEatablesActivity" />
+        <activity android:name="com.example.ashish.client_host.activity.Cart"></activity>
     </application>
 
 </manifest>

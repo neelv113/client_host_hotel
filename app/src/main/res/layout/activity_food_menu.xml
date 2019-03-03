@@ -19,7 +19,6 @@
             android:layout_alignParentBottom="true"
             android:weightSum="2">
 
-
             <Button
                 android:id="@+id/btnFood"
                 android:layout_width="0dp"
