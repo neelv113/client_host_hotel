@@ -14,6 +14,7 @@ import com.example.ashish.client_host.activity.AllEatablesActivity;
 import com.example.ashish.client_host.util.SharedPreferences;
 import com.example.ashish.pre_booked_hotel.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,18 +23,19 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
 
     private static final String TAG = EatablesAdapter.class.getSimpleName();
     private AllEatablesActivity allEatablesActivity;
-    private Map<String, List<String>> foodMap;
+    private Map<String, List<ItemDetails>> foodMap;
     private String food;
-    private List<String> dataList;
+    private List<ItemDetails> dataList = new ArrayList<>();
     private ElegantNumberButton button;
     private HashMap<String, ItemDetails> foodDetails = new HashMap<>();
     private ItemDetails itemDetails;
 
-    public EatablesAdapter(AllEatablesActivity allEatablesActivity, Map<String, List<String>> foodMap, String food) {
+    public EatablesAdapter(AllEatablesActivity allEatablesActivity, Map<String, List<ItemDetails>> foodMap, List<ItemDetails> dataList) {
         this.allEatablesActivity = allEatablesActivity;
         this.foodMap = foodMap;
         this.food = food;
-        dataList = foodMap.get(food);
+        this.dataList = dataList;
+        Log.d(TAG, "EatablesAdapter: called1:"+dataList);
     }
 
     @NonNull
@@ -41,24 +43,27 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.food_details, viewGroup, false);
         button = view.findViewById(R.id.buttonCount);
-        final int counter = 0;
+        // final int counter = 0;
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
-        viewHolder.txtView.setText(dataList.get(position));
+        viewHolder.txtView.setText(dataList.get(position).getFoodName());
+        viewHolder.txtPrice.setText(dataList.get(position).getPrice() + "");
         button.setOnClickListener(new ElegantNumberButton.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String number = button.getNumber();
-                itemDetails = new ItemDetails();
-                itemDetails.setFoodName(dataList.get(position));
-                itemDetails.setItemCount(Integer.parseInt(number));
-                itemDetails.setPrice(0);
-                foodDetails.put(dataList.get(position), itemDetails);
-                SharedPreferences.putFoodDetails(dataList.get(position), foodDetails);
-                Log.d(TAG, "onClick: called_"+SharedPreferences.getFoodDetails().keySet());
+//                itemDetails = new ItemDetails();
+//                itemDetails.setFoodName(dataList.get(position));
+//                itemDetails.setItemCount(Integer.parseInt(number));
+//                itemDetails.setPrice(0);
+                foodDetails.put(dataList.get(position).getFoodName(), itemDetails);
+                Log.d(TAG, "foods: " + dataList.get(position).getFoodName());
+                // foodDetails.put(dataList.get(position).getPrice(), itemDetails);
+                SharedPreferences.putFoodDetails(dataList.get(position).getFoodName(), foodDetails);
+                Log.d(TAG, "onClick: called_" + SharedPreferences.getFoodDetails().keySet());
                 for (String key : SharedPreferences.getFoodDetails().keySet()) {
                     ItemDetails itemDetailss = SharedPreferences.getFoodDetails().get(key);
                 }
@@ -69,6 +74,7 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
 
     @Override
     public int getItemCount() {
+        Log.d(TAG, "EatablesAdapter: called2:"+dataList.size());
         if (dataList == null) {
             return 0;
         } else
@@ -77,10 +83,12 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView txtView;
+        private TextView txtPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtView = itemView.findViewById(R.id.txtView);
+            txtPrice = itemView.findViewById(R.id.txtPrice);
         }
     }
 }

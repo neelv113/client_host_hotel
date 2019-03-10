@@ -1,5 +1,6 @@
 package com.example.ashish.client_host.Model;
 
+
 public class ItemDetails {
     private String foodName;
     private int price;

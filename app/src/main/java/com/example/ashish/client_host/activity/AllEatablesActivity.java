@@ -1,14 +1,17 @@
 package com.example.ashish.client_host.activity;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.ashish.client_host.Adapter.EatablesAdapter;
+import com.example.ashish.client_host.Model.ItemDetails;
 import com.example.ashish.pre_booked_hotel.R;
 
 import java.util.ArrayList;
@@ -16,74 +19,54 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AllEatablesActivity extends AppCompatActivity{
+public class AllEatablesActivity extends AppCompatActivity {
 
-    private Map<String, List<String>> foodMap;
+    private static final String TAG = AllEatablesActivity.class.getSimpleName();
+    private Map<String, List<ItemDetails>> foodMap;
 
     //Veg
 
-    private static final String KEY_BIRIYANI = "Biryani";
-    private List<String> biriyaniList = new ArrayList<>();
+    private List<ItemDetails> biriyaniList = new ArrayList<>();
 
-    private static final String KEY_PASTA = "Pasta";
-    private List<String> pastaList = new ArrayList<>();
+    private List<ItemDetails> pastaList = new ArrayList<>();
 
-    private static final String KEY_PIZZA = "Pizza";
-    private List<String> pizzaList = new ArrayList<>();
+    private List<ItemDetails> pizzaList = new ArrayList<>();
 
-    private static final String KEY_SANDWICH = "Sandwich";
-    private List<String> sandwichList = new ArrayList<>();
+    private List<ItemDetails> sandwichList = new ArrayList<>();
 
-    private static final String KEY_SOUPS = "Soups";
-    private List<String> soupsList = new ArrayList<>();
+    private List<ItemDetails> soupsList = new ArrayList<>();
 
-    private static final String KEY_NOODLES = "Noodles";
-    private List<String> noodlesList = new ArrayList<>();
+    private List<ItemDetails> noodlesList = new ArrayList<>();
 
-    private static final String KEY_DOSA = "Dosa";
-    private List<String> dosaList = new ArrayList<>();
+    private List<ItemDetails> dosaList = new ArrayList<>();
 
-    private static final String KEY_STARTERS = "Starters";
-    private List<String> startersList = new ArrayList<>();
+    private List<ItemDetails> startersList = new ArrayList<>();
 
-    private static final String KEY_BURGER = "Burger";
-    private List<String> burgerList = new ArrayList<>();
+    private List<ItemDetails> burgerList = new ArrayList<>();
 
-    private static final String KEY_ROLLS = "Rolls";
-    private List<String> rollsList = new ArrayList<>();
-
-
+    private List<ItemDetails> rollsList = new ArrayList<>();
+    
     //NonVeg
 
-    private static final String KEY_CHICKEN = "Chicken";
-    private List<String> chickenList = new ArrayList<>();
+    private List<ItemDetails> chickenList = new ArrayList<>();
 
-    private static final String KEY_OMLET = "Omlet";
-    private List<String> omletList = new ArrayList<>();
+    private List<ItemDetails> omletList = new ArrayList<>();
 
-    private static final String KEY_BEEF = "Beef Fry";
-    private List<String> beefList = new ArrayList<>();
+    private List<ItemDetails> beefList = new ArrayList<>();
 
-    private static final String KEY_FISH = "Fish";
-    private List<String> fishList = new ArrayList<>();
+    private List<ItemDetails> fishList = new ArrayList<>();
 
-    private static final String KEY_HOT_DOG = "Hot Dog";
-    private List<String> hotDogList = new ArrayList<>();
+    private List<ItemDetails> hotDogList = new ArrayList<>();
 
-    private static final String KEY_SQUID_FRY = "Squid Fry";
-    private List<String> squidFryList = new ArrayList<>();
+    private List<ItemDetails> squidFryList = new ArrayList<>();
 
-    private static final String KEY_CRAB = "Crab";
-    private List<String> crabList = new ArrayList<>();
+    private List<ItemDetails> crabList = new ArrayList<>();
 
-    private static final String KEY_EGGS = "Eggs";
-    private List<String> eggsList = new ArrayList<>();
+    private List<ItemDetails> eggsList = new ArrayList<>();
 
-    private static final String KEY_MUTTON = "Mutton";
-    private List<String> muttonList = new ArrayList<>();
+    private List<ItemDetails> muttonList = new ArrayList<>();
 
-    private static final String KEY_PRAWN = "Prawn";
-    private List<String> prawnList = new ArrayList<>();
+    private List<ItemDetails> prawnList = new ArrayList<>();
 
 
     private RecyclerView recyclerView;
@@ -103,7 +86,7 @@ public class AllEatablesActivity extends AppCompatActivity{
         buttonCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AllEatablesActivity.this,Cart.class));
+                startActivity(new Intent(AllEatablesActivity.this, Cart.class));
 
             }
         });
@@ -112,187 +95,694 @@ public class AllEatablesActivity extends AppCompatActivity{
         foodMap = new HashMap<>();
 
         //BIRYANI ITEMS
-        biriyaniList.add("Biriyani");
-        biriyaniList.add("Vegetable Biriyani ");
-        biriyaniList.add("Veg Hyderabadi Biriyani ");
-        biriyaniList.add("Kofta Biriyani ");
-        biriyaniList.add("Chana Biriyani ");
-        foodMap.put(KEY_BIRIYANI, biriyaniList);
+        ItemDetails biriItemDetails = new ItemDetails();
+        biriItemDetails.setFoodName("Biriyani");
+        biriItemDetails.setPrice(1);
+        biriItemDetails.setItemCount(0);
+        biriyaniList.add(biriItemDetails);
 
+
+        ItemDetails biriItemDetails1 = new ItemDetails();
+        biriItemDetails1.setFoodName("Vegetable Biriyani");
+        biriItemDetails1.setPrice(2);
+        biriItemDetails1.setItemCount(0);
+        biriyaniList.add(biriItemDetails1);
+
+
+        ItemDetails biriItemDetails2 = new ItemDetails();
+        biriItemDetails2.setFoodName("Veg Hyderabadi Biriyani");
+        biriItemDetails2.setPrice(3);
+        biriItemDetails2.setItemCount(0);
+        biriyaniList.add(biriItemDetails2);
+
+        ItemDetails biriItemDetails3 = new ItemDetails();
+        biriItemDetails3.setFoodName("Kofta Biriyani");
+        biriItemDetails3.setPrice(4);
+        biriItemDetails3.setItemCount(0);
+        biriyaniList.add(biriItemDetails3);
+
+        ItemDetails biriItemDetails4 = new ItemDetails();
+        biriItemDetails4.setFoodName("Chana Biriyani");
+        biriItemDetails4.setPrice(5);
+        biriItemDetails4.setItemCount(0);
+        biriyaniList.add(biriItemDetails4);
+
+        foodMap.put("Biryani", biriyaniList);
 
         //PASTA ITEMS
-        pastaList.add("Vegetable Pasta");
-        pastaList.add("Pasta Twists");
-        pastaList.add("White Sauce Pasta");
-        pastaList.add("Red Sauce Pasta");
-        pastaList.add("Cheese Pasta");
-        foodMap.put(KEY_PASTA, pastaList);
+        biriyaniList = new ArrayList<>();
+        ItemDetails pastaItemDetails = new ItemDetails();
+        pastaItemDetails.setFoodName("Vegetable Pasta");
+        pastaItemDetails.setPrice(1);
+        pastaItemDetails.setItemCount(0);
+        pastaList.add(pastaItemDetails);
+
+        ItemDetails pastaItemDetails1 = new ItemDetails();
+        pastaItemDetails1.setFoodName("Pasta Twists");
+        pastaItemDetails1.setPrice(1);
+        pastaItemDetails1.setItemCount(0);
+        pastaList.add(pastaItemDetails1);
+
+        ItemDetails pastaItemDetail2 = new ItemDetails();
+        pastaItemDetail2.setFoodName("White Sauce Pasta");
+        pastaItemDetail2.setPrice(1);
+        pastaItemDetail2.setItemCount(0);
+        pastaList.add(pastaItemDetail2);
+
+        ItemDetails pastaItemDetail3 = new ItemDetails();
+        pastaItemDetail3.setFoodName("Red sauce Pasta");
+        pastaItemDetail3.setPrice(1);
+        pastaItemDetail3.setItemCount(0);
+        pastaList.add(pastaItemDetail3);
+
+        ItemDetails pastaItemDetail4 = new ItemDetails();
+        pastaItemDetail4.setFoodName("Cheese Pasta");
+        pastaItemDetail4.setPrice(1);
+        pastaItemDetail4.setItemCount(0);
+        pastaList.add(pastaItemDetail4);
+
+        foodMap.put("Pasta", pastaList);
+
+        //Pizza
+
+       ItemDetails pizzaItemDetails = new ItemDetails();
+        pizzaItemDetails.setFoodName("Veg Pizza");
+        pizzaItemDetails.setPrice(1);
+        pizzaItemDetails.setItemCount(0);
+        pizzaList.add(pizzaItemDetails);
 
 
-        //PIZZA ITEMS
-        pizzaList.add("Veg Pizza");
-        pizzaList.add("Veg Cheese Pizza");
-        pizzaList.add("Only Cheese Pizza");
-        pizzaList.add("Noodles Pizza");
-        pizzaList.add("Mini Pizza");
-        foodMap.put(KEY_PIZZA,pizzaList);
 
+        ItemDetails pizzaItemDetails1 = new ItemDetails();
+        pizzaItemDetails1.setFoodName("Veg Cheese Pizza");
+        pizzaItemDetails1.setPrice(2);
+        pizzaItemDetails1.setItemCount(0);
+        pizzaList.add(pizzaItemDetails1);
+
+
+        ItemDetails pizzaItemDetails2 = new ItemDetails();
+        pizzaItemDetails2.setFoodName("Only Cheese Pizza");
+        pizzaItemDetails2.setPrice(3);
+        pizzaItemDetails2.setItemCount(0);
+        pizzaList.add(pizzaItemDetails2);
+
+
+        ItemDetails pizzaItemDetails3 = new ItemDetails();
+        pizzaItemDetails3.setFoodName("Noodles pizza");
+        pizzaItemDetails3.setPrice(4);
+        pizzaItemDetails3.setItemCount(0);
+        pizzaList.add(pizzaItemDetails3);
+
+
+        ItemDetails pizzaItemDetails4 = new ItemDetails();
+        pizzaItemDetails4.setFoodName("Mini Pizza");
+        pizzaItemDetails4.setPrice(5);
+        pizzaItemDetails4.setItemCount(0);
+        pizzaList.add(pizzaItemDetails4);
+
+        foodMap.put("Pizza",pizzaList);
 
         //SANDWICH ITEM
-        sandwichList.add("Veg Sandwich");
-        sandwichList.add("Paneer Sandwich");
-        sandwichList.add("Cheese Sandwich");
-        sandwichList.add("Grilled Sandwich");
-        sandwichList.add("Mushroom Sandwich");
-        foodMap.put(KEY_SANDWICH,sandwichList);
+        ItemDetails sandwichItemDetails = new ItemDetails();
+        sandwichItemDetails.setFoodName("Veg sandwich");
+        sandwichItemDetails.setPrice(1);
+        sandwichItemDetails.setItemCount(0);
+        sandwichList.add(sandwichItemDetails);
+
+
+        ItemDetails sandwichItemDetails1 = new ItemDetails();
+        sandwichItemDetails1.setFoodName("Paneer sandwich");
+        sandwichItemDetails1.setPrice(2);
+        sandwichItemDetails1.setItemCount(0);
+        sandwichList.add(sandwichItemDetails1);
+
+        ItemDetails sandwichItemDetails2 = new ItemDetails();
+        sandwichItemDetails2.setFoodName("Cheese sandwich");
+        sandwichItemDetails2.setPrice(3);
+        sandwichItemDetails2.setItemCount(0);
+        sandwichList.add(sandwichItemDetails2);
+
+
+        ItemDetails sandwichItemDetails3 = new ItemDetails();
+        sandwichItemDetails3.setFoodName("Grilled sandwich");
+        sandwichItemDetails3.setPrice(4);
+        sandwichItemDetails3.setItemCount(0);
+        sandwichList.add(sandwichItemDetails3);
+
+
+        ItemDetails sandwichItemDetails4 = new ItemDetails();
+        sandwichItemDetails4.setFoodName("Mushroom sandwich");
+        sandwichItemDetails4.setPrice(5);
+        sandwichItemDetails4.setItemCount(0);
+        sandwichList.add(sandwichItemDetails4);
+
+        foodMap.put("Sandwich", sandwichList);
 
 
         //SOUPS ITEM
-        soupsList.add("Manchow Soup");
-        soupsList.add("Tomato Soup");
-        soupsList.add("Broccoli Soup");
-        soupsList.add("Carrot Soup");
-        soupsList.add("Cauliflower Soup");
-        foodMap.put(KEY_SOUPS,soupsList);
+        ItemDetails soupsItemDetails = new ItemDetails();
+        soupsItemDetails.setFoodName("Manchaw Soup");
+        soupsItemDetails.setPrice(1);
+        soupsItemDetails.setItemCount(0);
+        soupsList.add(soupsItemDetails);
 
 
-        //NOODLES ITEM
-        noodlesList.add("Veg Hakka Noodles");
-        noodlesList.add("Gravy Noodles");
-        noodlesList.add("Chili Garlic Noodles");
-        noodlesList.add("Pan Fried Noodles");
-        noodlesList.add("Raw Rainbow Noodles");
-        foodMap.put(KEY_NOODLES,noodlesList);
+        ItemDetails soupsItemDetails1 = new ItemDetails();
+        soupsItemDetails1.setFoodName("Tomato Soup");
+        soupsItemDetails1.setPrice(2);
+        soupsItemDetails1.setItemCount(0);
+        soupsList.add(soupsItemDetails1);
+
+
+        ItemDetails soupsItemDetails2 = new ItemDetails();
+        soupsItemDetails2.setFoodName("Broccoli Soup");
+        soupsItemDetails2.setPrice(3);
+        soupsItemDetails2.setItemCount(0);
+        soupsList.add(soupsItemDetails2);
+
+
+        ItemDetails soupsItemDetails3 = new ItemDetails();
+        soupsItemDetails3.setFoodName("Carrot Soup");
+        soupsItemDetails3.setPrice(4);
+        soupsItemDetails3.setItemCount(0);
+        soupsList.add(soupsItemDetails3);
+
+
+        ItemDetails soupsItemDetails4 = new ItemDetails();
+        soupsItemDetails4.setFoodName("Cauliflower Soup");
+        soupsItemDetails4.setPrice(5);
+        soupsItemDetails4.setItemCount(0);
+        soupsList.add(soupsItemDetails4);
+
+        foodMap.put("Soups",soupsList);
+
+       //NOODLES ITEM
+
+        ItemDetails noodlesItemDetails = new ItemDetails();
+        noodlesItemDetails.setFoodName("Gravy Noodles");
+        noodlesItemDetails.setPrice(1);
+        noodlesItemDetails.setItemCount(0);
+        noodlesList.add(noodlesItemDetails);
+
+        ItemDetails noodlesItemDetails1 = new ItemDetails();
+        noodlesItemDetails1.setFoodName("Chilli Garlic Noodles");
+        noodlesItemDetails1.setPrice(2);
+        noodlesItemDetails1.setItemCount(0);
+        noodlesList.add(noodlesItemDetails1);
+
+        ItemDetails noodlesItemDetails2 = new ItemDetails();
+        noodlesItemDetails2.setFoodName("Veg Hakka Noodles");
+        noodlesItemDetails2.setPrice(3);
+        noodlesItemDetails2.setItemCount(0);
+        noodlesList.add(noodlesItemDetails2);
+
+        ItemDetails noodlesItemDetails3 = new ItemDetails();
+        noodlesItemDetails3.setFoodName("Pan Fried Noodles");
+        noodlesItemDetails3.setPrice(4);
+        noodlesItemDetails3.setItemCount(0);
+        noodlesList.add(noodlesItemDetails3);
+
+        ItemDetails noodlesItemDetails4 = new ItemDetails();
+        noodlesItemDetails4.setFoodName("Raw Rainbow Noodles");
+        noodlesItemDetails4.setPrice(5);
+        noodlesItemDetails4.setItemCount(0);
+        noodlesList.add(noodlesItemDetails4);
+
+        foodMap.put("Noodles",noodlesList);
 
 
         //DOSA ITEM
-        dosaList.add("Plain Dosa");
-        dosaList.add("Masala Dosa");
-        dosaList.add("Mysore Masala Dosa");
-        dosaList.add("Paper Dosa");
-        dosaList.add("Onion Dosa");
-        foodMap.put(KEY_DOSA,dosaList);
+        ItemDetails dosaItemDetails = new ItemDetails();
+        dosaItemDetails.setFoodName("Plain Dosa");
+        dosaItemDetails.setPrice(1);
+        dosaItemDetails.setItemCount(0);
+        dosaList.add(dosaItemDetails);
 
+        ItemDetails dosaItemDetails1 = new ItemDetails();
+        dosaItemDetails1.setFoodName("Masala Dosa");
+        dosaItemDetails1.setPrice(2);
+        dosaItemDetails1.setItemCount(0);
+        dosaList.add(dosaItemDetails1);
+
+        ItemDetails dosaItemDetails2 = new ItemDetails();
+        dosaItemDetails2.setFoodName("Mysore Masala Dosa");
+        dosaItemDetails2.setPrice(3);
+        dosaItemDetails2.setItemCount(0);
+        dosaList.add(dosaItemDetails2);
+
+        ItemDetails dosaItemDetails3 = new ItemDetails();
+        dosaItemDetails3.setFoodName("Paper Dosa");
+        dosaItemDetails3.setPrice(4);
+        dosaItemDetails3.setItemCount(0);
+        dosaList.add(dosaItemDetails3);
+
+        ItemDetails dosaItemDetails4 = new ItemDetails();
+        dosaItemDetails4.setFoodName("Onion Dosa");
+        dosaItemDetails4.setPrice(5);
+        dosaItemDetails4.setItemCount(0);
+        dosaList.add(dosaItemDetails4);
+
+
+        foodMap.put("Dosa",dosaList);
 
         //STARTERS ITEM
-        startersList.add("Chilli Paneer Dry");
-        startersList.add("Cream Cheese Rolls");
-        startersList.add("Onion Rings");
-        startersList.add("Dragon Potatoes");
-        startersList.add("Dry Manchurian");
-        foodMap.put(KEY_STARTERS,startersList);
 
+        ItemDetails statrItemDetails = new ItemDetails();
+        statrItemDetails.setFoodName("Chilli Paneer Dry");
+        statrItemDetails.setPrice(1);
+        statrItemDetails.setItemCount(0);
+        startersList.add(statrItemDetails);
+
+        ItemDetails statrItemDetails1 = new ItemDetails();
+        statrItemDetails1.setFoodName("Cream Cheese Rolls");
+        statrItemDetails1.setPrice(2);
+        statrItemDetails1.setItemCount(0);
+        startersList.add(statrItemDetails1);
+
+        ItemDetails statrItemDetails2 = new ItemDetails();
+        statrItemDetails2.setFoodName("Onion Rings");
+        statrItemDetails2.setPrice(3);
+        statrItemDetails2.setItemCount(0);
+        startersList.add(statrItemDetails2);
+
+        ItemDetails statrItemDetails3 = new ItemDetails();
+        statrItemDetails3.setFoodName("Dragon Potatoes");
+        statrItemDetails3.setPrice(4);
+        statrItemDetails3.setItemCount(0);
+        startersList.add(statrItemDetails3);
+
+        ItemDetails statrItemDetails4 = new ItemDetails();
+        statrItemDetails4.setFoodName("Dry Manchurian");
+        statrItemDetails4.setPrice(5);
+        statrItemDetails4.setItemCount(0);
+        startersList.add(statrItemDetails4);
+
+        foodMap.put("Starters",startersList);
 
         //BURGER ITEMS
-        burgerList.add("Veg Burger");
-        burgerList.add("Mexican Burger");
-        burgerList.add("Lebanise Burger");
-        burgerList.add("Paneer Grill Burger");
-        burgerList.add("Cheese burger");
-        foodMap.put(KEY_BURGER,burgerList);
 
+        ItemDetails burgerItemDetails = new ItemDetails();
+        burgerItemDetails.setFoodName("Veg Burger");
+        burgerItemDetails.setPrice(1);
+        burgerItemDetails.setItemCount(0);
+        burgerList.add(burgerItemDetails);
+
+        ItemDetails burgerItemDetails1 = new ItemDetails();
+        burgerItemDetails1.setFoodName("Mexican Burger");
+        burgerItemDetails1.setPrice(2);
+        burgerItemDetails1.setItemCount(0);
+        burgerList.add(burgerItemDetails1);
+
+        ItemDetails burgerItemDetails2 = new ItemDetails();
+        burgerItemDetails2.setFoodName("Lebanise Burger");
+        burgerItemDetails2.setPrice(3);
+        burgerItemDetails2.setItemCount(0);
+        burgerList.add(burgerItemDetails2);
+
+        ItemDetails burgerItemDetails3 = new ItemDetails();
+        burgerItemDetails3.setFoodName("Paneer Grill Burger");
+        burgerItemDetails3.setPrice(4);
+        burgerItemDetails3.setItemCount(0);
+        burgerList.add(burgerItemDetails3);
+
+        ItemDetails burgerItemDetails4 = new ItemDetails();
+        burgerItemDetails4.setFoodName("Cheese Burger");
+        burgerItemDetails4.setPrice(5);
+        burgerItemDetails4.setItemCount(0);
+        burgerList.add(burgerItemDetails4);
+        foodMap.put("Burger",burgerList);
 
         //ROLLS ITEMS
-        rollsList.add("Veg Roll");
-        rollsList.add("Paneer Tikka Kathi Roll");
-        rollsList.add("Paneer and Salsa");
-        rollsList.add("Hummus and Avacado");
-        rollsList.add("Quesadila");
-        foodMap.put(KEY_ROLLS,rollsList);
+        ItemDetails rollsItemDetails = new ItemDetails();
+        rollsItemDetails.setFoodName("Veg Roll");
+        rollsItemDetails.setPrice(1);
+        rollsItemDetails.setItemCount(0);
+        rollsList.add(rollsItemDetails);
 
+        ItemDetails rollsItemDetails1 = new ItemDetails();
+        rollsItemDetails1.setFoodName("Paneer Tikka Kathi Roll");
+        rollsItemDetails1.setPrice(2);
+        rollsItemDetails1.setItemCount(0);
+        rollsList.add(rollsItemDetails1);
+
+        ItemDetails rollsItemDetails2 = new ItemDetails();
+        rollsItemDetails2.setFoodName("Paneer and Salsa");
+        rollsItemDetails2.setPrice(3);
+        rollsItemDetails2.setItemCount(0);
+        rollsList.add(rollsItemDetails2);
+
+        ItemDetails rollsItemDetails3 = new ItemDetails();
+        rollsItemDetails3.setFoodName("Hummus and Avacado");
+        rollsItemDetails3.setPrice(4);
+        rollsItemDetails3.setItemCount(0);
+        rollsList.add(rollsItemDetails3);
+
+        ItemDetails rollsItemDetails4 = new ItemDetails();
+        rollsItemDetails4.setFoodName("Quesadila");
+        rollsItemDetails4.setPrice(5);
+        rollsItemDetails4.setItemCount(0);
+        rollsList.add(rollsItemDetails4);
+        foodMap.put("Rolls",rollsList);
 
         //CHICKEN ITEMS
-        chickenList.add("Chicken Lollipop");
-        chickenList.add("Chicken Akbari");
-        chickenList.add("Chicken Rarajosh");
-        chickenList.add("Chicken Malvani");
-        chickenList.add("Chicken Do Pyaza");
-        foodMap.put(KEY_CHICKEN,chickenList);
 
+        ItemDetails chickenItemDetails = new ItemDetails();
+        chickenItemDetails.setFoodName("Chicken Lolipop");
+        chickenItemDetails.setPrice(1);
+        chickenItemDetails.setItemCount(0);
+        chickenList.add(chickenItemDetails);
 
-        //OMLET ITEMS
-        omletList.add("Cheese Omlet");
-        omletList.add("Jalapeno Omlet");
-        omletList.add("Denver Omlet");
-        omletList.add("German Omlet");
-        omletList.add("Chili Cheese Omlet");
-        foodMap.put(KEY_OMLET,omletList);
+        ItemDetails chickenItemDetails1 = new ItemDetails();
+        chickenItemDetails1.setFoodName("Chicken Akbari");
+        chickenItemDetails1.setPrice(2);
+        chickenItemDetails1.setItemCount(0);
+        chickenList.add(chickenItemDetails1);
 
+        ItemDetails chickenItemDetails2 = new ItemDetails();
+        chickenItemDetails2.setFoodName("Chicken Rarajosh");
+        chickenItemDetails2.setPrice(3);
+        chickenItemDetails2.setItemCount(0);
+        chickenList.add(chickenItemDetails2);
 
+        ItemDetails chickenItemDetails3 = new ItemDetails();
+        chickenItemDetails3.setFoodName("Chicken Malvani");
+        chickenItemDetails3.setPrice(4);
+        chickenItemDetails3.setItemCount(0);
+        chickenList.add(chickenItemDetails3);
+
+        ItemDetails chickenItemDetails4 = new ItemDetails();
+        chickenItemDetails4.setFoodName("Chicken Do Pyaza");
+        chickenItemDetails4.setPrice(5);
+        chickenItemDetails4.setItemCount(0);
+        chickenList.add(chickenItemDetails4);
+
+        foodMap.put("Chicken",chickenList);
+       //OMLET ITEMS
+
+        ItemDetails omletItemDetails = new ItemDetails();
+        omletItemDetails.setFoodName("Cheese Omlet");
+        omletItemDetails.setPrice(1);
+        omletItemDetails.setItemCount(0);
+        omletList.add(omletItemDetails);
+
+        ItemDetails omletItemDetails1 = new ItemDetails();
+        omletItemDetails1.setFoodName("Jalapeno Omlet");
+        omletItemDetails1.setPrice(2);
+        omletItemDetails1.setItemCount(0);
+        omletList.add(omletItemDetails1);
+
+        ItemDetails omletItemDetails2 = new ItemDetails();
+        omletItemDetails2.setFoodName("Denver Omlet");
+        omletItemDetails2.setPrice(3);
+        omletItemDetails2.setItemCount(0);
+        omletList.add(omletItemDetails2);
+
+        ItemDetails omletItemDetails3 = new ItemDetails();
+        omletItemDetails3.setFoodName("German Omlet");
+        omletItemDetails3.setPrice(4);
+        omletItemDetails3.setItemCount(0);
+        omletList.add(omletItemDetails3);
+
+        ItemDetails omletItemDetails4 = new ItemDetails();
+        omletItemDetails4.setFoodName("Chilli Cheese Omlet");
+        omletItemDetails4.setPrice(5);
+        omletItemDetails4.setItemCount(0);
+        omletList.add(omletItemDetails4);
+
+        foodMap.put("Omlet",omletList);
         //BEEF IEMS
-        beefList.add("Chuck");
-        beefList.add("Rib");
-        beefList.add("Loin");
-        beefList.add("Round");
-        beefList.add("Brisket");
-        foodMap.put(KEY_BEEF,beefList);
+        ItemDetails beefItemDetails = new ItemDetails();
+        beefItemDetails.setFoodName("Chuck");
+        beefItemDetails.setPrice(1);
+        beefItemDetails.setItemCount(0);
+        beefList.add(beefItemDetails);
 
+        ItemDetails beefItemDetails1 = new ItemDetails();
+        beefItemDetails1.setFoodName("Rib");
+        beefItemDetails1.setPrice(2);
+        beefItemDetails1.setItemCount(0);
+        beefList.add(beefItemDetails1);
 
-        //FISH ITEMS
-        fishList.add("Fish Curry");
-        fishList.add("Fish Cutlet");
-        fishList.add("Fried Fish");
-        fishList.add("Fish Finger");
-        fishList.add("Steamed Fish");
-        foodMap.put(KEY_FISH,fishList);
+        ItemDetails beefItemDetails2 = new ItemDetails();
+        beefItemDetails2.setFoodName("Loin");
+        beefItemDetails2.setPrice(3);
+        beefItemDetails2.setItemCount(0);
+        beefList.add(beefItemDetails2);
 
+        ItemDetails beefItemDetails3 = new ItemDetails();
+        beefItemDetails3.setFoodName("Round");
+        beefItemDetails3.setPrice(4);
+        beefItemDetails3.setItemCount(0);
+        beefList.add(beefItemDetails3);
+
+        ItemDetails beefItemDetails4 = new ItemDetails();
+        beefItemDetails4.setFoodName("Brisket");
+        beefItemDetails4.setPrice(5);
+        beefItemDetails4.setItemCount(0);
+        beefList.add(beefItemDetails4);
+
+        foodMap.put("Beef",beefList);
+
+       //FISH ITEMS
+
+        ItemDetails fishItemDetails = new ItemDetails();
+        fishItemDetails.setFoodName("Fish Currry");
+        fishItemDetails.setPrice(1);
+        fishItemDetails.setItemCount(0);
+        fishList.add(fishItemDetails);
+
+        ItemDetails fishItemDetails1 = new ItemDetails();
+        fishItemDetails1.setFoodName("Fish Cutlet");
+        fishItemDetails1.setPrice(2);
+        fishItemDetails1.setItemCount(0);
+        fishList.add(fishItemDetails1);
+
+        ItemDetails fishItemDetails2 = new ItemDetails();
+        fishItemDetails2.setFoodName("Fried Fish");
+        fishItemDetails2.setPrice(3);
+        fishItemDetails2.setItemCount(0);
+        fishList.add(fishItemDetails2);
+
+        ItemDetails fishItemDetails3 = new ItemDetails();
+        fishItemDetails3.setFoodName("Fish Finger");
+        fishItemDetails3.setPrice(4);
+        fishItemDetails3.setItemCount(0);
+        fishList.add(fishItemDetails3);
+
+        ItemDetails fishItemDetails4 = new ItemDetails();
+        fishItemDetails4.setFoodName("Steamed Fish");
+        fishItemDetails4.setPrice(5);
+        fishItemDetails4.setItemCount(0);
+        fishList.add(fishItemDetails4);
+        foodMap.put("Fish",fishList);
 
         //HOT DOG
-        hotDogList.add("Chicago Dog");
-        hotDogList.add("Junkyard Dog");
-        hotDogList.add("Blazin' Dog");
-        hotDogList.add("All-American Dog");
-        hotDogList.add("Pastrami Dog");
-        foodMap.put(KEY_HOT_DOG,hotDogList);
 
+        ItemDetails hotDogItemDetails = new ItemDetails();
+        hotDogItemDetails.setFoodName("chicago Dog");
+        hotDogItemDetails.setPrice(1);
+        hotDogItemDetails.setItemCount(0);
+        hotDogList.add(hotDogItemDetails);
 
-        //SQUID FRY
-        squidFryList.add("Stuffed Squid");
-        squidFryList.add("Crispy Squid");
-        squidFryList.add("Tuscan Seafood Stew");
-        squidFryList.add("Cioppino");
-        squidFryList.add("Fritto Misto");
-        foodMap.put(KEY_SQUID_FRY,squidFryList);
+        ItemDetails hotDogItemDetails1 = new ItemDetails();
+        hotDogItemDetails1.setFoodName("Junkyard Dog");
+        hotDogItemDetails1.setPrice(2);
+        hotDogItemDetails1.setItemCount(0);
+        hotDogList.add(hotDogItemDetails1);
 
+        ItemDetails hotDogItemDetails2 = new ItemDetails();
+        hotDogItemDetails2.setFoodName("Blazin Dog");
+        hotDogItemDetails2.setPrice(3);
+        hotDogItemDetails2.setItemCount(0);
+        hotDogList.add(hotDogItemDetails2);
+
+        ItemDetails hotDogItemDetails3 = new ItemDetails();
+        hotDogItemDetails3.setFoodName("All-American Dog");
+        hotDogItemDetails3.setPrice(4);
+        hotDogItemDetails3.setItemCount(0);
+        hotDogList.add(hotDogItemDetails3);
+
+        ItemDetails hotDogItemDetails4 = new ItemDetails();
+        hotDogItemDetails4.setFoodName("Pastrami Dog");
+        hotDogItemDetails4.setPrice(5);
+        hotDogItemDetails4.setItemCount(0);
+        hotDogList.add(hotDogItemDetails4);
+
+        foodMap.put("Hot Dog",hotDogList);
+
+       //SQUID FRY
+
+        ItemDetails squidItemDetails = new ItemDetails();
+        squidItemDetails.setFoodName("Stuffed Squid");
+        squidItemDetails.setPrice(1);
+        squidItemDetails.setItemCount(0);
+        squidFryList.add(squidItemDetails);
+
+        ItemDetails squidItemDetails1 = new ItemDetails();
+        squidItemDetails1.setFoodName("Crispy Squid");
+        squidItemDetails1.setPrice(2);
+        squidItemDetails1.setItemCount(0);
+        squidFryList.add(squidItemDetails1);
+
+        ItemDetails squidItemDetails2 = new ItemDetails();
+        squidItemDetails2.setFoodName("Tuscan Seafood Stew");
+        squidItemDetails2.setPrice(3);
+        squidItemDetails2.setItemCount(0);
+        squidFryList.add(squidItemDetails2);
+
+        ItemDetails squidItemDetails3 = new ItemDetails();
+        squidItemDetails3.setFoodName("Cioppino");
+        squidItemDetails3.setPrice(4);
+        squidItemDetails3.setItemCount(0);
+        squidFryList.add(squidItemDetails3);
+
+        ItemDetails squidItemDetails4 = new ItemDetails();
+        squidItemDetails4.setFoodName("Fritto Misto");
+        squidItemDetails4.setPrice(5);
+        squidItemDetails4.setItemCount(0);
+        squidFryList.add(squidItemDetails4);
+
+        foodMap.put("Squid Fry",squidFryList);
 
         //CRAB ITEMS
-        crabList.add("Crab Cake");
-        crabList.add("Soft-Shell Crab");
-        crabList.add("Crab Dip");
-        crabList.add("Deviled Crab");
-        crabList.add("Chilli Crab");
-        foodMap.put(KEY_CRAB,crabList);
 
+        ItemDetails crabItemDetails = new ItemDetails();
+        crabItemDetails.setFoodName("Crab Cake");
+        crabItemDetails.setPrice(1);
+        crabItemDetails.setItemCount(0);
+        crabList.add(crabItemDetails);
 
-        //EGGS ITEM
-        eggsList.add("Soft Boiled Egg");
-        eggsList.add("Scrambled Egg");
-        eggsList.add("Fried Egg");
-        eggsList.add("Poached Eggs");
-        eggsList.add("Shirred Eggs");
-        foodMap.put(KEY_EGGS,eggsList);
+        ItemDetails crabItemDetails1 = new ItemDetails();
+        crabItemDetails1.setFoodName("Soft Shell Crab");
+        crabItemDetails1.setPrice(2);
+        crabItemDetails1.setItemCount(0);
+        crabList.add(crabItemDetails1);
 
+        ItemDetails crabItemDetails2 = new ItemDetails();
+        crabItemDetails2.setFoodName("Crab Dip");
+        crabItemDetails2.setPrice(3);
+        crabItemDetails2.setItemCount(0);
+        crabList.add(crabItemDetails2);
 
-        //MUTTON ITEMS
-        muttonList.add("Mutton Kuzhambu");
-        muttonList.add("Mutton Korma");
-        muttonList.add("Nalli Nihari");
-        muttonList.add("Kosha Mangsho");
-        muttonList.add("Pasanda");
-        foodMap.put(KEY_MUTTON,muttonList);
+        ItemDetails crabItemDetails3 = new ItemDetails();
+        crabItemDetails3.setFoodName("Deviled Crab");
+        crabItemDetails3.setPrice(4);
+        crabItemDetails3.setItemCount(0);
+        crabList.add(crabItemDetails3);
 
+        ItemDetails crabItemDetails4 = new ItemDetails();
+        crabItemDetails4.setFoodName("Chilli Crab");
+        crabItemDetails4.setPrice(5);
+        crabItemDetails4.setItemCount(0);
+        crabList.add(crabItemDetails4);
 
-        //PRAWN ITEMS
-        prawnList.add("Kerala Fried Prawns");
-        prawnList.add("Prawn Curry");
-        prawnList.add("Malai Prawn Curry");
-        prawnList.add("Prawn Pulao");
-        prawnList.add("Spicy Prawns");
-        foodMap.put(KEY_PRAWN,prawnList);
+        foodMap.put("Crab",crabList);
 
+       //EGGS ITEM
+
+        ItemDetails eggItemDetails = new ItemDetails();
+        eggItemDetails.setFoodName("Soft Boiled Egg");
+        eggItemDetails.setPrice(1);
+        eggItemDetails.setItemCount(0);
+        eggsList.add(eggItemDetails);
+
+        ItemDetails eggItemDetails1 = new ItemDetails();
+        eggItemDetails1.setFoodName("Scrambled Egg");
+        eggItemDetails1.setPrice(2);
+        eggItemDetails1.setItemCount(0);
+        eggsList.add(eggItemDetails1);
+
+        ItemDetails eggItemDetails2 = new ItemDetails();
+        eggItemDetails2.setFoodName("Fried Egg");
+        eggItemDetails2.setPrice(3);
+        eggItemDetails2.setItemCount(0);
+        eggsList.add(eggItemDetails2);
+
+        ItemDetails eggItemDetails3 = new ItemDetails();
+        eggItemDetails3.setFoodName("Poached Egg");
+        eggItemDetails3.setPrice(4);
+        eggItemDetails3.setItemCount(0);
+        eggsList.add(eggItemDetails3);
+
+        ItemDetails eggItemDetails4 = new ItemDetails();
+        eggItemDetails4.setFoodName("Shirred Egg");
+        eggItemDetails4.setPrice(5);
+        eggItemDetails4.setItemCount(0);
+        eggsList.add(eggItemDetails4);
+
+        foodMap.put("Eggs",eggsList);
+
+       //MUTTON ITEMS
+
+        ItemDetails muttonItemDetails = new ItemDetails();
+        muttonItemDetails.setFoodName("Mutton Kuzhambu");
+        muttonItemDetails.setPrice(1);
+        muttonItemDetails.setItemCount(0);
+        muttonList.add(muttonItemDetails);
+
+        ItemDetails muttonItemDetails1 = new ItemDetails();
+        muttonItemDetails1.setFoodName("Mutton Korma");
+        muttonItemDetails1.setPrice(2);
+        muttonItemDetails1.setItemCount(0);
+        muttonList.add(muttonItemDetails1);
+
+        ItemDetails muttonItemDetails2 = new ItemDetails();
+        muttonItemDetails2.setFoodName("Nalli Nihari");
+        muttonItemDetails2.setPrice(3);
+        muttonItemDetails2.setItemCount(0);
+        muttonList.add(muttonItemDetails2);
+
+        ItemDetails muttonItemDetails3 = new ItemDetails();
+        muttonItemDetails3.setFoodName("Kosha Mangsho");
+        muttonItemDetails3.setPrice(4);
+        muttonItemDetails3.setItemCount(0);
+        muttonList.add(muttonItemDetails3);
+
+        ItemDetails muttonItemDetails4 = new ItemDetails();
+        muttonItemDetails4.setFoodName("Pasanda");
+        muttonItemDetails4.setPrice(5);
+        muttonItemDetails4.setItemCount(0);
+        muttonList.add(muttonItemDetails4);
+
+        foodMap.put("Mutton",muttonList);
+
+       //PRAWN ITEMS
+        ItemDetails prawnItemDetails = new ItemDetails();
+        prawnItemDetails.setFoodName("Kerala Fried Prawn");
+        prawnItemDetails.setPrice(1);
+        prawnItemDetails.setItemCount(0);
+        prawnList.add(prawnItemDetails);
+
+        ItemDetails prawnItemDetails1 = new ItemDetails();
+        prawnItemDetails1.setFoodName("Prawn Curry");
+        prawnItemDetails1.setPrice(2);
+        prawnItemDetails1.setItemCount(0);
+        prawnList.add(prawnItemDetails1);
+
+        ItemDetails prawnItemDetails2 = new ItemDetails();
+        prawnItemDetails2.setFoodName("Malai Prawn Curry");
+        prawnItemDetails2.setPrice(3);
+        prawnItemDetails2.setItemCount(0);
+        prawnList.add(prawnItemDetails2);
+
+        ItemDetails prawnItemDetails3 = new ItemDetails();
+        prawnItemDetails3.setFoodName("Prawn Pulao");
+        prawnItemDetails3.setPrice(4);
+        prawnItemDetails3.setItemCount(0);
+        prawnList.add(prawnItemDetails3);
+
+        ItemDetails prawnItemDetails4 = new ItemDetails();
+        prawnItemDetails4.setFoodName("Spicy Prawns");
+        prawnItemDetails4.setPrice(5);
+        prawnItemDetails4.setItemCount(0);
+        prawnList.add(prawnItemDetails4);
+
+        foodMap.put("Prawn",prawnList);
 
         if (eatablesAdapter == null) {
-            eatablesAdapter = new EatablesAdapter(this,foodMap,bundle.getString("food"));
+            Log.d(TAG, "onCreate: called_" + bundle.getString("food"));
+            Log.d(TAG, "EatablesAdapter: called3:"+bundle.getString("food")+"__"+foodMap.get(bundle.getString("food")));
+            eatablesAdapter = new EatablesAdapter(this, foodMap, foodMap.get(bundle.getString("food")));
             recyclerView.setAdapter(eatablesAdapter);
         }
     }

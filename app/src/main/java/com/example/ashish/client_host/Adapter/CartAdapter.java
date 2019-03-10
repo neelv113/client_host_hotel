@@ -39,8 +39,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Log.d(TAG, "onBindViewHolder: called_"+itemDetails.get(i)+"__"+itemDetails.get(i).getPrice());
-        viewHolder.txtView.setText(keyList.get(i));
+       // Log.d(TAG, "onBindViewHolder: called_"+itemDetails.get(i)+"__"+itemDetails.get(i).getPrice()+"");
+        viewHolder.txtView.setText(keyList.get(i)+"");
         viewHolder.txtPrice.setText(itemDetails.get(i).getPrice()+"");
     }
 
