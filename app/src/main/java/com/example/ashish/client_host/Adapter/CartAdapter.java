@@ -14,6 +14,7 @@ import com.example.ashish.client_host.util.SharedPreferences;
 import com.example.ashish.pre_booked_hotel.R;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -39,9 +40,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-       // Log.d(TAG, "onBindViewHolder: called_"+itemDetails.get(i)+"__"+itemDetails.get(i).getPrice()+"");
-        viewHolder.txtView.setText(keyList.get(i)+"");
-        viewHolder.txtPrice.setText(itemDetails.get(i).getPrice()+"");
+        Log.d(TAG, "onBindViewHolder: called_" + itemDetails.get(i) + "__" + itemDetails.get(i).getPrice() + "");
+        viewHolder.txtView.setText(keyList.get(i));
+        viewHolder.txtPrice.setText(itemDetails.get(i).getPrice() + "  " + itemDetails.get(i).getItemCount());
+        SharedPreferences.putFoodDetailsList(itemDetails.get(i));
     }
 
     @Override

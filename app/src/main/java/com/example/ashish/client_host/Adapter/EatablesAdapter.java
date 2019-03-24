@@ -54,12 +54,14 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
         button.setOnClickListener(new ElegantNumberButton.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String number = button.getNumber();
-//                itemDetails = new ItemDetails();
+                Log.d(TAG, "onClick: number"+number);
+//   itemDetails = new ItemDetails();
 //                itemDetails.setFoodName(dataList.get(position));
 //                itemDetails.setItemCount(Integer.parseInt(number));
 //                itemDetails.setPrice(0);
-                foodDetails.put(dataList.get(position).getFoodName(), itemDetails);
+                foodDetails.put(dataList.get(position).getFoodName(), dataList.get(position));
                 Log.d(TAG, "foods: " + dataList.get(position).getFoodName());
                 // foodDetails.put(dataList.get(position).getPrice(), itemDetails);
                 SharedPreferences.putFoodDetails(dataList.get(position).getFoodName(), foodDetails);
@@ -68,6 +70,13 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
                     ItemDetails itemDetailss = SharedPreferences.getFoodDetails().get(key);
                 }
 
+            }
+        });
+        button.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
+            @Override
+            public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
+                Log.d(TAG, String.format("oldValue: %d   newValue: %d", oldValue, newValue));
+                dataList.get(position).setItemCount(newValue);
             }
         });
     }
