@@ -37,34 +37,41 @@ public class Cart extends AppCompatActivity {
 
     private RecyclerView cartRecyclerView;
     private CartAdapter cartAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        Log.d(TAG, "onCreate: called ak cart 1");
         initViews();
-        placeOrderBtn=findViewById(R.id.placeOrder);
-
-        placeOrderBtn.setOnClickListener(placeorder);
+        placeOrderBtn = findViewById(R.id.placeOrder);
+        placeOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendNotification();
+            }
+        });
 
     }
 
-    View.OnClickListener placeorder=new View.OnClickListener() {
+    /*View.OnClickListener placeorder = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             sendNotification();
         }
-    } ;
+    };*/
 
-    private final void sendNotification() {
-        this.mClient = new OkHttpClient();
-        String refreshedToken = "f-Xot0hshes:APA91bG1WB_SVCardwAqNlU2JMD6F7j-boLF_StfUyFwxsxpO1blqJs1sQQ4BGVrK9JEY82c2yvtezEkJ2wckxa6d4Z9Yg0FbrU-H0CUqQJ8KOuMwhhsNjSqt-e8zC0DPZx6qHyiqTJ0";
+    private void sendNotification() {
+        mClient = new OkHttpClient();
+        String refreshedToken = "fuFtKFfd3qw:APA91bE4sygXTuwwc8RLT-jBd8D54if89KywbFRlh-A3vrd11B3QFICm5_W_mdRakM46iPxUQhNNH5pGWzAR3FmNV8zXD5oI0nbYw2bS9xKQTBvPRzwQWaqURP7ZDX_Vj4ECbJi8L5No";
         JSONArray jsonArray = new JSONArray();
         jsonArray.put(refreshedToken);
-        this.sendMessage(jsonArray, "hello", "ak", "Http://google.com", "my name is ashish");
+        sendMessage(jsonArray, "hello", "ak", "Http://google.com", "my name is ashish");
     }
 
-    void sendMessage(final JSONArray recipients, final String title, final String body, final String icon, final String message) {
-        AsyncTask asyncTask = new AsyncTask<String,String,String>() {
+    private void sendMessage(final JSONArray recipients, final String title, final String body, final String icon, final String message) {
+        Log.d(TAG, "sendMessage: called ak send message:");
+        new AsyncTask<String,String,String>(){
             @Override
             protected String doInBackground(String... strings) {
                 try {
@@ -73,6 +80,7 @@ public class Cart extends AppCompatActivity {
                     notification.put("body", body);
                     notification.put("title", title);
                     notification.put("icon", icon);
+
                     JSONObject data = new JSONObject();
                     data.put("message", message);
                     root.put("notification", notification);
@@ -80,59 +88,33 @@ public class Cart extends AppCompatActivity {
                     root.put("registration_ids", recipients);
 
                     String result = postToFCM(root.toString());
-                    Log.d(TAG, "doInBackground: called:"+result);
+                    Log.d(TAG,"response ak1:"+result);
                     return result;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
+
+                return null;
             }
-
-            @Override
-            protected void onPreExecute() {
-            }
-
-            @Override
-            protected void onPostExecute(String result) {
-                try {
-                    Log.d(TAG, "onPostExecute: called1:"+result);
-                    JSONObject resultJSON= new JSONObject(result);
-                    int success;
-                    int failure;
-                    success=resultJSON.getInt("success");
-                    failure=resultJSON.getInt("Failure");
-                    Toast.makeText(Cart.this,"Success"+success+"Failure"+failure,Toast.LENGTH_SHORT).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.d(TAG, "onPostExecute: called:"+e.getMessage());
-                    Toast.makeText(Cart.this,"Fail due to error",Toast.LENGTH_SHORT).show();
-                }
-            }
-
-
-        }.execute();
+        };
     }
-    private String postToFCM(String bodyString) throws IOException {
-        Log.d(TAG, "postToFCM1: ");
-        String FCM_MESSAGE_URL="https://fcm.googleapis.com/fcm/send";
-        Log.d(TAG, "postToFCM2: ");
-        MediaType JSON= MediaType.parse("application/json; charset=utf-8");
-        Log.d(TAG, "postToFCM3: ");
-        RequestBody body= RequestBody.create(JSON,bodyString);
-        Log.d(TAG, "postToFCM4: ");
-        Request request=new Request.Builder()
+
+    private String postToFCM(String bodyString)throws IOException {
+
+        String FCM_MESSAGE_URL = "https://fcm.googleapis.com/fcm/send";
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON, bodyString);
+        Request request = new Request.Builder()
                 .url(FCM_MESSAGE_URL)
                 .post(body)
-                .addHeader("Authorization","key="+"AIzaSyCc8pnR2KhsYshriO4_BztCQeREpx6q1ZQ")
+                .addHeader("Authorization", "key=" + "AIzaSyCc8pnR2KhsYshriO4_BztCQeREpx6q1ZQ")
                 .build();
-        Log.d(TAG, "postToFCM5: ");
-        Response response=mClient.newCall(request).execute();
-        Log.d(TAG, "postToFCM6: "+response+"___"+response.body()+"__"+response.body().toString()+"__"+response);
-        return response.body().toString();
+        Response response = mClient.newCall(request).execute();
+        Log.d(TAG,"response al:"+response+"__"+response.body()+"__"+response.body().toString());
+        return response.body().string();
     }
 
-    private void initViews()
-    {
+    private void initViews() {
         cartRecyclerView = findViewById(R.id.cartRecyclerView);
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartAdapter = new CartAdapter(this);

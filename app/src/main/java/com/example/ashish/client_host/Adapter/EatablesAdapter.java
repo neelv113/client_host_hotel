@@ -62,10 +62,12 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
 //                itemDetails.setItemCount(Integer.parseInt(number));
 //                itemDetails.setPrice(0);
                 foodDetails.put(dataList.get(position).getFoodName(), dataList.get(position));
-                Log.d(TAG, "foods: " + dataList.get(position).getFoodName());
                 // foodDetails.put(dataList.get(position).getPrice(), itemDetails);
                 SharedPreferences.putFoodDetails(dataList.get(position).getFoodName(), foodDetails);
-                Log.d(TAG, "onClick: called_" + SharedPreferences.getFoodDetails().keySet());
+
+                Log.d(TAG, "onClick: check price:"+dataList.get(position).getFoodName()+"__"+dataList.get(position).getPrice());
+                SharedPreferences.putFoodList(dataList.get(position).getFoodName(),dataList.get(position).getPrice());
+
                 for (String key : SharedPreferences.getFoodDetails().keySet()) {
                     ItemDetails itemDetailss = SharedPreferences.getFoodDetails().get(key);
                 }

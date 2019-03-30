@@ -8,6 +8,8 @@ import com.example.ashish.client_host.Model.ItemDetails;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -23,6 +25,8 @@ public class SharedPreferences {
     private static Editor editor = App.getInstance().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
     private static android.content.SharedPreferences preferences = App.getInstance().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
     private static Map<String, ItemDetails> mFoodDetails = new HashMap<>();
+    private static Set<String> foodSet = new LinkedHashSet<>();
+    private static Set<String> foodSetPrice = new LinkedHashSet<>();
 
     public static void putFoodDetails(String foodName, Map<String, ItemDetails> foodDetails) {
         mFoodDetails = foodDetails;
@@ -30,6 +34,23 @@ public class SharedPreferences {
         String hashMapString = gson.toJson(foodDetails);
         editor.putString(foodName, hashMapString);
         editor.commit();
+    }
+
+    public static void putFoodList(String foodName,int price) {
+        foodSet.add(foodName);
+        foodSetPrice.add(String.valueOf(price));
+        editor.putStringSet("foodListName", foodSet);
+        editor.putStringSet("foodListPrice", foodSetPrice);
+        Log.d(TAG, "putFoodList: shared pred:"+foodName+"__"+price);
+        editor.commit();
+    }
+
+    public static Set<String> getFoodListName() {
+        return preferences.getStringSet("foodListName", null);
+    }
+
+    public static Set<String> getFoodListPrice() {
+        return preferences.getStringSet("foodListPrice", null);
     }
 
     public static Map<String, ItemDetails> getFoodDetails() {
@@ -46,7 +67,7 @@ public class SharedPreferences {
         editor.commit();
     }
 
-    public static void getCartItems(){
-        Log.d(TAG, "getCartItems: get items:"+preferences.getString("cart_items",null));
+    public static void getCartItems() {
+        Log.d(TAG, "getCartItems: get items:" + preferences.getString("cart_items", null));
     }
 }

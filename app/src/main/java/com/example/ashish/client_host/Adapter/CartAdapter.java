@@ -14,7 +14,6 @@ import com.example.ashish.client_host.util.SharedPreferences;
 import com.example.ashish.pre_booked_hotel.R;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -24,9 +23,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     private Cart context;
     private List<String> keyList = new ArrayList<>(SharedPreferences.getFoodDetails().keySet());
     private List<ItemDetails> itemDetails = new ArrayList<>(SharedPreferences.getFoodDetails().values());
+    private Set dataSet = SharedPreferences.getFoodListName();
+    private Set dataSetPrice = SharedPreferences.getFoodListPrice();
+    private Object[] dataList, dataPirceList;
 
     public CartAdapter(Cart context) {
         this.context = context;
+        dataList = dataSet.toArray();
+        dataPirceList = dataSetPrice.toArray();
+        Log.d(TAG, "CartAdapter: called ak:check size:"+dataList.length+"__"+dataPirceList.length);
     }
 
     @NonNull
@@ -40,15 +45,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Log.d(TAG, "onBindViewHolder: called_" + itemDetails.get(i) + "__" + itemDetails.get(i).getPrice() + "");
-        viewHolder.txtView.setText(keyList.get(i));
-        viewHolder.txtPrice.setText(itemDetails.get(i).getPrice() + "  " + itemDetails.get(i).getItemCount());
+        viewHolder.txtView.setText(dataList[i] + "");
+        viewHolder.txtPrice.setText(dataPirceList[i]+"");
         SharedPreferences.putFoodDetailsList(itemDetails.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return SharedPreferences.getFoodDetails().keySet().size();
+        return SharedPreferences.getFoodListName().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
