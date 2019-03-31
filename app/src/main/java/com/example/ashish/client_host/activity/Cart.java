@@ -57,7 +57,7 @@ public class Cart extends AppCompatActivity {
 
     private void sendNotification() {
         mClient = new OkHttpClient();
-        String refreshedToken = "fuFtKFfd3qw:APA91bE4sygXTuwwc8RLT-jBd8D54if89KywbFRlh-A3vrd11B3QFICm5_W_mdRakM46iPxUQhNNH5pGWzAR3FmNV8zXD5oI0nbYw2bS9xKQTBvPRzwQWaqURP7ZDX_Vj4ECbJi8L5No";
+        String refreshedToken = "dKkc30tq6EQ:APA91bGKWQAAgXFV5lEBCqx--_4cR1Z4cpC-Q_j-TPUH8nSOzPbASWEOR9RwDF0WhFxgyzSmqzvhe3O0g4AakUzmtJOSHdZoRRJFw6rgn16Qg3WCrvc0WD3kqqFKqaKcNSxFgK75UNX2";
         JSONArray jsonArray = new JSONArray();
         jsonArray.put(refreshedToken);
         sendMessage(jsonArray, "hello", "ak", "Http://google.com", "my name is ashish");
@@ -120,7 +120,7 @@ public class Cart extends AppCompatActivity {
                 .addHeader("Authorization", "key=" + "AIzaSyCc8pnR2KhsYshriO4_BztCQeREpx6q1ZQ")
                 .build();
         Response response = mClient.newCall(request).execute();
-        Log.d(TAG,"response al:"+response+"__"+response.body()+"__"+response.body().toString());
+        Log.d(TAG,"response al:"+response+"__"+response.body().string()+"__"+response.body().string());
         return response.body().string();
     }
 
