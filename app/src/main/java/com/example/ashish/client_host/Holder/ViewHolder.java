@@ -41,12 +41,15 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         Log.d(TAG, "ViewHolder: called _"+view);
     }
 
-    public void setDetails(Context context,String imgUrl,String name)
+    public void setDetails(Context context,String imgUrl,String name,String price)
     {
+
         TextView textView = view.findViewById(R.id.txtView);
+        TextView textPriceView = view.findViewById(R.id.drinkPriceView);
         ImageView imageView = view.findViewById(R.id.drinkImg);
 
         textView.setText(name);
+        textPriceView.setText(price);
         Picasso.get().load(imgUrl).into(imageView);
     }
     public void setVegFoodDetails(Context ctx,String foodUrl,String foodName)

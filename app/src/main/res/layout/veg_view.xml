@@ -9,7 +9,7 @@
         android:id="@+id/vegImg"
         android:layout_height="250dp"
         android:layout_width="match_parent"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         />
 

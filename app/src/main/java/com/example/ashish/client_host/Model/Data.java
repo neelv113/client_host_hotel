@@ -2,7 +2,15 @@ package com.example.ashish.client_host.Model;
 
 public class Data {
 
-    String imgUrl,name,foodName,foodUrl,nonVegUrl,nonVegName;
+    String imgUrl,name,price,foodName,foodUrl,nonVegUrl,nonVegName;
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public String getNonVegUrl() {
         return nonVegUrl;

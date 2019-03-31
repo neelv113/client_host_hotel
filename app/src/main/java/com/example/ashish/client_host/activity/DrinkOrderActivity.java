@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.ashish.client_host.Adapter.RecyclerDrinkAdapter;
 import com.example.ashish.client_host.Holder.ViewHolder;
@@ -25,12 +26,22 @@ public class DrinkOrderActivity extends AppCompatActivity {
     private RecyclerDrinkAdapter recyclerDrinkAdapter;
     FirebaseDatabase database;
     DatabaseReference myRef;
+    Button btnCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_order);
         initViews();
+        btnCart=findViewById(R.id.btnCart);
+
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DrinkOrderActivity.this,Cart.class));
+            }
+        });
+
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Drinks");
@@ -52,7 +63,7 @@ public class DrinkOrderActivity extends AppCompatActivity {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Data model, int position) {
 //                        Log.d(TAG, "populateViewHolder:");
-                        viewHolder.setDetails(getApplicationContext(),model.getImgUrl(),model.getName());
+                        viewHolder.setDetails(getApplicationContext(),model.getImgUrl(),model.getName(),model.getPrice());
                     }
 
                     @Override
@@ -69,6 +80,8 @@ public class DrinkOrderActivity extends AppCompatActivity {
                 };
         recyclerDrink.setAdapter(firebaseRecyclerAdapter);
         }
+
+
 
     private void initViews() {
         recyclerDrink = findViewById(R.id.recyclerDrink);

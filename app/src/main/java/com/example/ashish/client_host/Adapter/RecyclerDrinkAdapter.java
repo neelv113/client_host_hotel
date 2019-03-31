@@ -59,11 +59,13 @@ public class RecyclerDrinkAdapter extends RecyclerView.Adapter<RecyclerDrinkAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView txtPriceView;
         private TextView txtView;
         private CardView viewLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            txtPriceView = itemView.findViewById(R.id.drinkPriceView);
             txtView = itemView.findViewById(R.id.txtView);
             viewLayout=itemView.findViewById(R.id.viewLayout);
         }
@@ -71,6 +73,7 @@ public class RecyclerDrinkAdapter extends RecyclerView.Adapter<RecyclerDrinkAdap
         public void setData(int position) {
             Log.d(TAG, "setData: "+position);
             txtView.setText("" + position);
+            txtPriceView.setText("" + position);
         }
     }
 }
