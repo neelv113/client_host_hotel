@@ -57,7 +57,7 @@ public class Cart extends AppCompatActivity {
 
     private void sendNotification() {
         mClient = new OkHttpClient();
-        String refreshedToken = "dKkc30tq6EQ:APA91bGKWQAAgXFV5lEBCqx--_4cR1Z4cpC-Q_j-TPUH8nSOzPbASWEOR9RwDF0WhFxgyzSmqzvhe3O0g4AakUzmtJOSHdZoRRJFw6rgn16Qg3WCrvc0WD3kqqFKqaKcNSxFgK75UNX2";
+        String refreshedToken = "duSf1jOeajk:APA91bH8iWaWiBZqekZZreC9wxJmFnjjy1yTWjjlgH_0SQefuB1lGdU3eWZeYA8b1mIGXOiPkG2J7Mws6C-WCX6rxzA1rXcp_2-byIGDZ-xkrP2s_KObWbWvdKKJBMyPwR1NP19bypMS";
         JSONArray jsonArray = new JSONArray();
         jsonArray.put(refreshedToken);
         sendMessage(jsonArray, "hello", "ak", "Http://google.com", "my name is ashish");
@@ -98,19 +98,20 @@ public class Cart extends AppCompatActivity {
                     int success;
                     int failure;
                     success=resultJson.getInt("success");
-                    failure=resultJson.getInt("failuer");
+                    failure=resultJson.getInt("failure");
                     Toast.makeText(Cart.this,"Message Success:"+success+"Failure"+failure,Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception e){
                     e.printStackTrace();
-                    Toast.makeText(Cart.this,"Failed due to error",Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "onPostExecute: called failure:"+e.getMessage());
+                    Toast.makeText(Cart.this,e.getMessage(),Toast.LENGTH_SHORT).show();
                 }
             }
         }.execute();
     }
 
     private String postToFCM(String bodyString)throws IOException {
-
+        Log.d(TAG,"response al:2");
         String FCM_MESSAGE_URL = "https://fcm.googleapis.com/fcm/send";
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(JSON, bodyString);
@@ -120,7 +121,7 @@ public class Cart extends AppCompatActivity {
                 .addHeader("Authorization", "key=" + "AIzaSyCc8pnR2KhsYshriO4_BztCQeREpx6q1ZQ")
                 .build();
         Response response = mClient.newCall(request).execute();
-        Log.d(TAG,"response al:"+response+"__"+response.body().string()+"__"+response.body().string());
+//        Log.d(TAG,"response al:"+response+"__"+response.body().string()+"__"+response.body().string());
         return response.body().string();
     }
 
