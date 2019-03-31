@@ -27,17 +27,6 @@
         android:textColor="@android:color/white"
         />
 
-    <!--<Button-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textSize="15sp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:gravity="center"-->
-        <!--android:textAllCaps="false"-->
-        <!--android:textColor="@android:color/white"-->
-        <!--android:background="@drawable/round_edge_button2"-->
-        <!--android:text="Add" />-->
-
     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
         android:id="@+id/buttonCount"
         android:layout_height="100dp"
@@ -48,7 +37,5 @@
         app:finalNumber="20"
         >
     </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
-
-
 
 </LinearLayout>
