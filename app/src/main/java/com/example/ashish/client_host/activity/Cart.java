@@ -45,21 +45,15 @@ public class Cart extends AppCompatActivity {
         Log.d(TAG, "onCreate: called ak cart 1");
         initViews();
         placeOrderBtn = findViewById(R.id.placeOrder);
-        placeOrderBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendNotification();
-            }
-        });
+       placeOrderBtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               sendNotification();
+           }
+       });
 
     }
 
-    /*View.OnClickListener placeorder = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            sendNotification();
-        }
-    };*/
 
     private void sendNotification() {
         mClient = new OkHttpClient();
@@ -96,7 +90,23 @@ public class Cart extends AppCompatActivity {
 
                 return null;
             }
-        };
+
+            @Override
+            protected void onPostExecute(String result) {
+                try{
+                    JSONObject resultJson=new JSONObject(result);
+                    int success;
+                    int failure;
+                    success=resultJson.getInt("success");
+                    failure=resultJson.getInt("failuer");
+                    Toast.makeText(Cart.this,"Message Success:"+success+"Failure"+failure,Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(Cart.this,"Failed due to error",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }.execute();
     }
 
     private String postToFCM(String bodyString)throws IOException {
