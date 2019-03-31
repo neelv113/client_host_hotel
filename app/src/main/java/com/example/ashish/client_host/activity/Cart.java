@@ -57,7 +57,7 @@ public class Cart extends AppCompatActivity {
 
     private void sendNotification() {
         mClient = new OkHttpClient();
-        String refreshedToken = "duSf1jOeajk:APA91bH8iWaWiBZqekZZreC9wxJmFnjjy1yTWjjlgH_0SQefuB1lGdU3eWZeYA8b1mIGXOiPkG2J7Mws6C-WCX6rxzA1rXcp_2-byIGDZ-xkrP2s_KObWbWvdKKJBMyPwR1NP19bypMS";
+        String refreshedToken = "debqsUY2Efs:APA91bEIWkIbO_7i_pswmsnKCIPsufVK7z-i8cmWL93TAolm_1XMxFIMYpz0lD22-EgAiwfw8ZOx55qiEdQ8i6Q2U-Gofh5XZf5MUMZGecSLRQEwT_8GWdrv1emaBd-p7Wgeg6LxG7bz";
         JSONArray jsonArray = new JSONArray();
         jsonArray.put(refreshedToken);
         sendMessage(jsonArray, "hello", "ak", "Http://google.com", "my name is ashish");
