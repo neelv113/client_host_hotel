@@ -63,6 +63,7 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
 //                itemDetails.setPrice(0);
                 foodDetails.put(dataList.get(position).getFoodName(), dataList.get(position));
                 // foodDetails.put(dataList.get(position).getPrice(), itemDetails);
+                Log.d(TAG, "onClick: called ka list:"+"___"+dataList.get(position).getFoodName()+"__"+dataList.get(position)+"__"+foodDetails.size());
                 SharedPreferences.putFoodDetails(dataList.get(position).getFoodName(), foodDetails);
 
                 Log.d(TAG, "onClick: check price:"+dataList.get(position).getFoodName()+"__"+dataList.get(position).getPrice());

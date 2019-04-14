@@ -26,11 +26,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     private Set dataSet = SharedPreferences.getFoodListName();
     private Set dataSetPrice = SharedPreferences.getFoodListPrice();
     private Object[] dataList, dataPirceList;
+    private List<String> list=new ArrayList<String>();
+
 
     public CartAdapter(Cart context) {
         this.context = context;
         dataList = dataSet.toArray();
         dataPirceList = dataSetPrice.toArray();
+        list.addAll(SharedPreferences.getFoodListName());
         Log.d(TAG, "CartAdapter: called ak:check size:"+dataList.length+"__"+dataPirceList.length);
     }
 
@@ -47,7 +50,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         viewHolder.txtView.setText(dataList[i] + "");
         viewHolder.txtPrice.setText(dataPirceList[i]+"");
-        SharedPreferences.putFoodDetailsList(itemDetails.get(i));
+//        SharedPreferences.putFoodDetailsList(itemDetails.get(i));
     }
 
     @Override

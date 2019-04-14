@@ -1,6 +1,5 @@
 package com.example.ashish.client_host.activity;
 
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ashish.client_host.Adapter.CartAdapter;
+import com.example.ashish.client_host.util.SharedPreferences;
 import com.example.ashish.pre_booked_hotel.R;
 
 import org.json.JSONArray;
@@ -57,10 +57,10 @@ public class Cart extends AppCompatActivity {
 
     private void sendNotification() {
         mClient = new OkHttpClient();
-        String refreshedToken = "debqsUY2Efs:APA91bEIWkIbO_7i_pswmsnKCIPsufVK7z-i8cmWL93TAolm_1XMxFIMYpz0lD22-EgAiwfw8ZOx55qiEdQ8i6Q2U-Gofh5XZf5MUMZGecSLRQEwT_8GWdrv1emaBd-p7Wgeg6LxG7bz";
+        String refreshedToken = "fIyd5BoUhmk:APA91bHuU75ns-2r00CmSZoGArcE2f-SvZvtVFfKHHjCXVqUBjIks27KpwNFhO6pMHUGkANVAyEgoYgBicHiT7CTdnzhICaLduGo7lsFmcgAYYvEVrHwuKmR8IAQ-53U2sNK-K5LvRA4";
         JSONArray jsonArray = new JSONArray();
         jsonArray.put(refreshedToken);
-        sendMessage(jsonArray, "hello", "ak", "Http://google.com", "my name is ashish");
+        sendMessage(jsonArray, "hello", SharedPreferences.getFoodListName().toString(), "Http://google.com", "my name is ashish");
     }
 
     private void sendMessage(final JSONArray recipients, final String title, final String body, final String icon, final String message) {
