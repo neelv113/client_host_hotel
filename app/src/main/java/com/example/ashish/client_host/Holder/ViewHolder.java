@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.ashish.pre_booked_hotel.R;
 import com.squareup.picasso.Picasso;
 
@@ -25,6 +26,10 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private LinearLayout viewNonVegLayout;
     private String foodName;
     private String nonVegFoodName;
+    public ElegantNumberButton drinkBtn;
+
+    public TextView textView;
+    public TextView textPriceView;
 
     public String getNonVegFoodName() {
         return nonVegFoodName;
@@ -38,14 +43,16 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         viewLayout=itemView.findViewById(R.id.viewLayout);
         viewNonVegLayout = itemView.findViewById(R.id.viewNonVegLayout);
 
+        drinkBtn = itemView.findViewById(R.id.drinkButtonCount);
+
         Log.d(TAG, "ViewHolder: called _"+view);
     }
 
     public void setDetails(Context context,String imgUrl,String name,String price)
     {
 
-        TextView textView = view.findViewById(R.id.txtView);
-        TextView textPriceView = view.findViewById(R.id.drinkPriceView);
+        textView = view.findViewById(R.id.txtView);
+        textPriceView = view.findViewById(R.id.drinkPriceView);
         ImageView imageView = view.findViewById(R.id.drinkImg);
 
         textView.setText(name);

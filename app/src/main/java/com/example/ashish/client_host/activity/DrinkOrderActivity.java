@@ -10,9 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.ashish.client_host.Adapter.RecyclerDrinkAdapter;
 import com.example.ashish.client_host.Holder.ViewHolder;
 import com.example.ashish.client_host.Model.Data;
+import com.example.ashish.client_host.util.SharedPreferences;
 import com.example.ashish.pre_booked_hotel.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +29,7 @@ public class DrinkOrderActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     Button btnCart;
+  //  ElegantNumberButton drinkBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,6 @@ public class DrinkOrderActivity extends AppCompatActivity {
                 startActivity(new Intent(DrinkOrderActivity.this,Cart.class));
             }
         });
-
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Drinks");
@@ -58,8 +60,8 @@ public class DrinkOrderActivity extends AppCompatActivity {
                         R.layout.drink_view,
                         ViewHolder.class,
                         myRef
-
                 ) {
+
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Data model, int position) {
 //                        Log.d(TAG, "populateViewHolder:");
@@ -67,26 +69,34 @@ public class DrinkOrderActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+                    public void onBindViewHolder(final ViewHolder viewHolder, int position) {
                         super.onBindViewHolder(viewHolder, position);
-//                        viewHolder.getViewLayout().setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                                Intent intent= new Intent(DrinkOrderActivity.this,AllEatablesActivity.class);
-//                                startActivity(intent);
-//                            }
-//                        });
+                        Log.d(TAG, "onBindViewHolderDrink:"+viewHolder.drinkBtn);
+
+                        viewHolder.drinkBtn.setOnClickListener(new ElegantNumberButton.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                String number = viewHolder.drinkBtn.getNumber();
+                                SharedPreferences.putFoodList(viewHolder.textView.getText().toString(),Integer.parseInt(viewHolder.textPriceView.getText().toString()));
+                                Log.d(TAG, "onClickDrink: "+viewHolder.textView.getText()+"__"+viewHolder.textPriceView.getText());
+                                Log.d(TAG, "onClickDrink: "+number);
+                            }
+                        });
+                        viewHolder.drinkBtn.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
+                            @Override
+                            public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
+                                Log.d(TAG, String.format("oldValue: %d   newValue: %d", oldValue, newValue));
+                            }
+                        });
                     }
                 };
         recyclerDrink.setAdapter(firebaseRecyclerAdapter);
         }
 
-
-
     private void initViews() {
         recyclerDrink = findViewById(R.id.recyclerDrink);
         recyclerDrink.setLayoutManager(new LinearLayoutManager(this));
-        recyclerDrinkAdapter = new RecyclerDrinkAdapter(this);
-        recyclerDrink.setAdapter(recyclerDrinkAdapter);
+        //recyclerDrinkAdapter = new RecyclerDrinkAdapter(this);
+        //recyclerDrink.setAdapter(recyclerDrinkAdapter);
     }
 }
