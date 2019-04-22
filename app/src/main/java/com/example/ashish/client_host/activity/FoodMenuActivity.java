@@ -111,7 +111,7 @@ public class FoodMenuActivity extends AppCompatActivity implements NavigationVie
         }
         else if(id == R.id.myOrder)
         {
-            startActivity(new Intent(this,ToolbarMyOrderActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            startActivity(new Intent(this,Cart.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP));
         }
         else if(id == R.id.about)
         {
