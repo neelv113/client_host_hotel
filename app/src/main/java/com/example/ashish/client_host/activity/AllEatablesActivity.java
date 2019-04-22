@@ -2,6 +2,7 @@ package com.example.ashish.client_host.activity;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.ashish.client_host.Adapter.EatablesAdapter;
 import com.example.ashish.client_host.Model.ItemDetails;
@@ -86,8 +88,14 @@ public class AllEatablesActivity extends AppCompatActivity {
         buttonCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AllEatablesActivity.this, Cart.class));
-
+                if(com.example.ashish.client_host.util.SharedPreferences.isEmpty())
+                {
+                    Toast.makeText(AllEatablesActivity.this,"Select any food",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    startActivity(new Intent(AllEatablesActivity.this, Cart.class));
+                }
             }
         });
 

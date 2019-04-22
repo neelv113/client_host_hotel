@@ -25,10 +25,13 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
     private AllEatablesActivity allEatablesActivity;
     private Map<String, List<ItemDetails>> foodMap;
     private String food;
-    private List<ItemDetails> dataList = new ArrayList<>();
+    public List<ItemDetails> dataList = new ArrayList<>();
     private ElegantNumberButton button;
     private HashMap<String, ItemDetails> foodDetails = new HashMap<>();
     private ItemDetails itemDetails;
+
+    public EatablesAdapter()
+    { }
 
     public EatablesAdapter(AllEatablesActivity allEatablesActivity, Map<String, List<ItemDetails>> foodMap, List<ItemDetails> dataList) {
         this.allEatablesActivity = allEatablesActivity;
@@ -75,6 +78,7 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
 
             }
         });
+
         button.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
             @Override
             public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
@@ -94,8 +98,8 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtView;
-        private TextView txtPrice;
+        public TextView txtView;
+        public TextView txtPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

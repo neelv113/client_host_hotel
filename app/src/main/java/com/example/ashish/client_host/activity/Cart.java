@@ -1,5 +1,6 @@
 package com.example.ashish.client_host.activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ashish.client_host.Adapter.CartAdapter;
+import com.example.ashish.client_host.Adapter.EatablesAdapter;
 import com.example.ashish.client_host.util.SharedPreferences;
 import com.example.ashish.pre_booked_hotel.R;
 
@@ -34,6 +36,7 @@ public class Cart extends AppCompatActivity {
 
     OkHttpClient mClient;
     Button placeOrderBtn;
+    Button removeOrderBtn;
     EditText edtTable;
     private static final String TAG = Cart.class.getSimpleName();
 
@@ -45,18 +48,49 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
         edtTable=findViewById(R.id.edtTable);
+        removeOrderBtn = findViewById(R.id.removeOrder);
+
+        removeOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               //  new EatablesAdapter().dataList.clear();
+                    SharedPreferences.clear();
+                    cartRecyclerView.setAdapter(null);
+                    cartRecyclerView.setAdapter(cartAdapter);
+                    //startActivity(new Intent(Cart.this,AllEatablesActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                    //Toast.makeText(Cart.this,"Cart is empty",Toast.LENGTH_LONG).show();
+            }
+        });
+
         Log.d(TAG, "onCreate: called ak cart 1");
         initViews();
         placeOrderBtn = findViewById(R.id.placeOrder);
        placeOrderBtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               sendNotification();
+               String table = edtTable.getText().toString();
+
+               if(SharedPreferences.isEmpty())
+               {
+                   startActivity(new Intent(Cart.this,AllEatablesActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                   Toast.makeText(Cart.this,"Please select any order",Toast.LENGTH_LONG).show();
+                   finish();
+               }
+               else if(table.isEmpty())
+               {
+                   Toast.makeText(Cart.this,"Please enter table number",Toast.LENGTH_LONG).show();
+               }
+               else
+               {
+                   sendNotification();
+                   startActivity(new Intent(Cart.this,FoodMenuActivity.class));
+
+               }
+
            }
        });
 
     }
-
 
     private void sendNotification() {
         mClient = new OkHttpClient();
@@ -102,12 +136,13 @@ public class Cart extends AppCompatActivity {
                     int failure;
                     success=resultJson.getInt("success");
                     failure=resultJson.getInt("failure");
-                    Toast.makeText(Cart.this,"Message Success:"+success+"Failure"+failure,Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Cart.this,"Message Success:"+success+"Failure"+failure,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Cart.this,"Order Placed Successfully",Toast.LENGTH_LONG).show();
                 }
                 catch (Exception e){
                     e.printStackTrace();
                     Log.d(TAG, "onPostExecute: called failure:"+e.getMessage());
-                    Toast.makeText(Cart.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Cart.this,e.getMessage(),Toast.LENGTH_LONG).show();
                 }
             }
         }.execute();

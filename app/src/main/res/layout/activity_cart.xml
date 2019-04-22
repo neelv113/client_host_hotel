@@ -13,12 +13,27 @@
 
     <EditText
         android:id="@+id/edtTable"
-        android:layout_above="@id/placeOrder"
+        android:layout_above="@id/removeOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter table number"
+        android:inputType="number"
+        android:maxLength="2"
         android:textColorHint="@android:color/white"
         android:textColor="@android:color/white"
+        android:layout_margin="5dp"
+        />
+
+    <Button
+        android:id="@+id/removeOrder"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_above="@id/placeOrder"
+        android:text="Discard Order"
+        android:textColor="@android:color/white"
+        android:background="@drawable/round_edge_button2"
+        android:layout_margin="5dp"
+
         />
 
     <Button
@@ -29,6 +44,7 @@
         android:text="Place order"
         android:background="@drawable/round_edge_button2"
         android:textColor="@android:color/white"
+        android:layout_margin="5dp"
         />
 
 </RelativeLayout>

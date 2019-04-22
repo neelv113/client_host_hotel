@@ -28,6 +28,9 @@ public class SharedPreferences {
     private static Set<String> foodSet = new LinkedHashSet<>();
     private static Set<String> foodSetPrice = new LinkedHashSet<>();
 
+
+
+
     public static void putFoodDetails(String foodName, Map<String, ItemDetails> foodDetails) {
         mFoodDetails = foodDetails;
         Gson gson = new Gson();
@@ -43,6 +46,25 @@ public class SharedPreferences {
         editor.putStringSet("foodListPrice", foodSetPrice);
         Log.d(TAG, "putFoodList: shared pred:"+foodName+"__"+price);
         editor.commit();
+    }
+    public static void clear()
+    {
+        editor.clear();
+        editor.commit();
+        //preferences.edit().remove("food").commit();
+    }
+    public static boolean isEmpty()
+    {
+
+        if(preferences.getAll().isEmpty())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     public static Set<String> getFoodListName() {
