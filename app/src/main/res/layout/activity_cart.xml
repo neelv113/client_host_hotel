@@ -11,6 +11,16 @@
         android:layout_height="match_parent" >
     </android.support.v7.widget.RecyclerView>
 
+    <EditText
+        android:id="@+id/edtTable"
+        android:layout_above="@id/placeOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter table number"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+        />
+
     <Button
         android:id="@+id/placeOrder"
         android:layout_width="match_parent"

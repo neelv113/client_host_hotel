@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.textclassifier.TextLinks;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class Cart extends AppCompatActivity {
 
     OkHttpClient mClient;
     Button placeOrderBtn;
+    EditText edtTable;
     private static final String TAG = Cart.class.getSimpleName();
 
     private RecyclerView cartRecyclerView;
@@ -42,6 +44,7 @@ public class Cart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        edtTable=findViewById(R.id.edtTable);
         Log.d(TAG, "onCreate: called ak cart 1");
         initViews();
         placeOrderBtn = findViewById(R.id.placeOrder);
@@ -60,7 +63,7 @@ public class Cart extends AppCompatActivity {
         String refreshedToken = "fIyd5BoUhmk:APA91bHuU75ns-2r00CmSZoGArcE2f-SvZvtVFfKHHjCXVqUBjIks27KpwNFhO6pMHUGkANVAyEgoYgBicHiT7CTdnzhICaLduGo7lsFmcgAYYvEVrHwuKmR8IAQ-53U2sNK-K5LvRA4";
         JSONArray jsonArray = new JSONArray();
         jsonArray.put(refreshedToken);
-        sendMessage(jsonArray, "hello", SharedPreferences.getFoodListName().toString(), "Http://google.com", "my name is ashish");
+        sendMessage(jsonArray, "hello", SharedPreferences.getFoodListName().toString(), "Http://google.com", edtTable.getText().toString());
     }
 
     private void sendMessage(final JSONArray recipients, final String title, final String body, final String icon, final String message) {
