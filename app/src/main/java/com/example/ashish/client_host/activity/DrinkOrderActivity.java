@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.ashish.client_host.Adapter.RecyclerDrinkAdapter;
@@ -29,7 +30,6 @@ public class DrinkOrderActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     Button btnCart;
-  //  ElegantNumberButton drinkBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +41,21 @@ public class DrinkOrderActivity extends AppCompatActivity {
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DrinkOrderActivity.this,Cart.class));
+                if(SharedPreferences.isEmpty())
+                {
+                    startActivity(new Intent(DrinkOrderActivity.this,DrinkOrderActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                    Toast.makeText(DrinkOrderActivity.this,"Please select any order",Toast.LENGTH_LONG).show();
+                }
+                else
+                    {
+                        startActivity(new Intent(DrinkOrderActivity.this,Cart.class));
+                    }
+
             }
         });
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Drinks");
-      //  Log.d(TAG, "myRef:"+myRef);
     }
 
     @Override
@@ -64,7 +72,6 @@ public class DrinkOrderActivity extends AppCompatActivity {
 
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Data model, int position) {
-//                        Log.d(TAG, "populateViewHolder:");
                         viewHolder.setDetails(getApplicationContext(),model.getImgUrl(),model.getName(),model.getPrice());
                     }
 
@@ -73,19 +80,13 @@ public class DrinkOrderActivity extends AppCompatActivity {
                         super.onBindViewHolder(viewHolder, position);
                         Log.d(TAG, "onBindViewHolderDrink:"+viewHolder.drinkBtn);
 
-                        viewHolder.drinkBtn.setOnClickListener(new ElegantNumberButton.OnClickListener() {
+                        viewHolder.drinkBtn.setOnClickListener(new View.OnClickListener() {
+
                             @Override
                             public void onClick(View view) {
-                                String number = viewHolder.drinkBtn.getNumber();
+                                Toast.makeText(DrinkOrderActivity.this,"Item Added To Cart",Toast.LENGTH_LONG).show();
                                 SharedPreferences.putFoodList(viewHolder.textView.getText().toString(),Integer.parseInt(viewHolder.textPriceView.getText().toString()));
                                 Log.d(TAG, "onClickDrink: "+viewHolder.textView.getText()+"__"+viewHolder.textPriceView.getText());
-                                Log.d(TAG, "onClickDrink: "+number);
-                            }
-                        });
-                        viewHolder.drinkBtn.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
-                            @Override
-                            public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
-                                Log.d(TAG, String.format("oldValue: %d   newValue: %d", oldValue, newValue));
                             }
                         });
                     }

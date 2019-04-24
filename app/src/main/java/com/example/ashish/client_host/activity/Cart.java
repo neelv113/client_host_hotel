@@ -86,7 +86,6 @@ public class Cart extends AppCompatActivity {
                    startActivity(new Intent(Cart.this,FoodMenuActivity.class));
 
                }
-
            }
        });
 

@@ -19,17 +19,17 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.net.URL;
 
-public class ToolbarRatingActivity extends AppCompatActivity{
+public class ToolbarRatingActivity extends AppCompatActivity {
 
     private static final String TAG = ToolbarRatingActivity.class.getSimpleName();
 
-     String no;
-     float rate;
-     EditText number;
-     RatingBar ratingBar;
-     Button button;
+    String no;
+    float rate;
+    EditText number;
+    RatingBar ratingBar;
+    Button button;
 
-     Firebase firebase;
+    Firebase firebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +42,6 @@ public class ToolbarRatingActivity extends AppCompatActivity{
 
         Firebase.setAndroidContext(this);
 
-     //   String deviceID = Settings.Secure.getString(getApplicationContext().getContentResolver(),Settings.Secure.ANDROID_ID);
-
         firebase = new Firebase("https://typroject-93943.firebaseio.com/UserRatings");
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -51,23 +49,18 @@ public class ToolbarRatingActivity extends AppCompatActivity{
             public void onClick(View view) {
                 no = number.getText().toString();
                 rate = ratingBar.getRating();
-                Log.d(TAG, "onClick:1"+no);
-                //Toast.makeText(ToolbarRatingActivity.this,"Rate : "+ratingBar.getRating(),Toast.LENGTH_SHORT).show();
-                if(no.length() < 10)
-                {
+                Log.d(TAG, "onClick:1" + no);
+
+                if (no.length() < 10) {
                     Log.d(TAG, "onClick:2");
-                    Toast.makeText(ToolbarRatingActivity.this,"Invalid Contact",Toast.LENGTH_LONG).show();
-                }
-                else
-                {
+                    Toast.makeText(ToolbarRatingActivity.this, "Invalid Contact", Toast.LENGTH_LONG).show();
+                } else {
                     Firebase newChild;
                     newChild = firebase.child(no);
                     newChild.setValue(rate);
 
-               //     new Ratings(rate,no);
-                    Toast.makeText(ToolbarRatingActivity.this,"Thank You for your feedback...",Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(ToolbarRatingActivity.this,FoodMenuActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP));
-
+                    Toast.makeText(ToolbarRatingActivity.this, "Thank You for your feedback...", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(ToolbarRatingActivity.this, FoodMenuActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 }
             }
         });

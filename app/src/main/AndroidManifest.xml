@@ -32,9 +32,6 @@
             android:name="com.example.ashish.client_host.activity.DrinkOrderActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.ashish.client_host.activity.GridRecyclerActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.example.ashish.client_host.activity.ToolbarMyOrderActivity"
             android:screenOrientation="portrait" />
         <activity

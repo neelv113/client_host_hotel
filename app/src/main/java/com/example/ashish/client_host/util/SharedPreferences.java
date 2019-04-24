@@ -64,7 +64,6 @@ public class SharedPreferences {
         {
             return false;
         }
-
     }
 
     public static Set<String> getFoodListName() {

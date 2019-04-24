@@ -552,7 +552,7 @@ public class AllEatablesActivity extends AppCompatActivity {
         beefItemDetails4.setItemCount(0);
         beefList.add(beefItemDetails4);
 
-        foodMap.put("Beef",beefList);
+        foodMap.put("Beef Fry",beefList);
 
        //FISH ITEMS
 

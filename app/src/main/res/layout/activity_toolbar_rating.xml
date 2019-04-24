@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/white"
+    android:background="@android:color/black"
     tools:context=".activity.ToolbarHomeActivity">
 
 
@@ -18,7 +18,7 @@
         android:text="Kindly rate our services"
         android:gravity="center"
         android:textSize="30sp"
-        android:textColor="@android:color/black">
+        android:textColor="@android:color/white">
     </TextView>
 
     <RatingBar
@@ -26,6 +26,9 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/Rating"
+        android:background="@android:color/white"
+        android:outlineSpotShadowColor="@android:color/white"
+        android:outlineAmbientShadowColor="@android:color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp">
     </RatingBar>
@@ -35,12 +38,18 @@
         android:inputType="number"
         android:maxLength="10"
         android:layout_marginTop="25dp"
+        android:textColorHint="@android:color/white"
+        android:outlineAmbientShadowColor="@android:color/white"
+        android:outlineSpotShadowColor="@android:color/white"
+        android:shadowColor="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColorLink="@android:color/white"
         android:hint="Enter your Mobile number"
         android:layout_below="@id/Rating"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textSize="25dp"
-        android:textColor="@android:color/black">
+        android:textColor="@android:color/white">
     </EditText>
 
     <LinearLayout

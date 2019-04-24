@@ -6,6 +6,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,7 +27,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private LinearLayout viewNonVegLayout;
     private String foodName;
     private String nonVegFoodName;
-    public ElegantNumberButton drinkBtn;
+    public Button drinkBtn;
 
     public TextView textView;
     public TextView textPriceView;

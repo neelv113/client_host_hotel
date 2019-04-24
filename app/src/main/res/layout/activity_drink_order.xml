@@ -17,6 +17,7 @@
         android:id="@+id/btnCart"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:layout_width="match_parent"
         android:text="Go To Cart"
         android:background="@drawable/round_edge_button2"

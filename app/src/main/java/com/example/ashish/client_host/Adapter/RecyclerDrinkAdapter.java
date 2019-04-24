@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.example.ashish.client_host.activity.AllEatablesActivity;
 import com.example.ashish.client_host.activity.DrinkOrderActivity;
-import com.example.ashish.client_host.activity.GridRecyclerActivity;
-import com.example.ashish.client_host.util.FragmentUtil;
 import com.example.ashish.pre_booked_hotel.R;
 
 public class RecyclerDrinkAdapter extends RecyclerView.Adapter<RecyclerDrinkAdapter.ViewHolder> {
@@ -35,17 +33,7 @@ public class RecyclerDrinkAdapter extends RecyclerView.Adapter<RecyclerDrinkAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int  position) {
-        //holder.setData(position);
-        holder.txtView.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-            context.startActivity(new Intent(context,GridRecyclerActivity.class));
-            Toast.makeText(context,""+position,Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        holder.viewLayout.setOnClickListener(new View.OnClickListener() {
+                holder.viewLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 context.startActivity(new Intent(context,AllEatablesActivity.class));

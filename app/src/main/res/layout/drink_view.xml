@@ -33,9 +33,9 @@
             <TextView
                 android:id="@+id/txtView"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="12sp"
                 android:layout_weight="1"
                 android:background="@android:color/black"
                 android:padding="20dp"/>
@@ -43,22 +43,22 @@
             <TextView
                 android:id="@+id/drinkPriceView"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="12sp"
                 android:layout_weight="1"
                 android:background="@android:color/black"
                 android:padding="20dp"/>
 
-            <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+            <Button
                 android:id="@+id/drinkButtonCount"
-                android:layout_height="100dp"
                 android:layout_width="0dp"
-                android:background="@android:color/black"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textAllCaps="false"
+                android:background="@drawable/round_edge_button2"
                 android:gravity="center"
-                app:backGroundColor="@android:color/holo_green_dark"
-                app:finalNumber="20" />
+                android:text="Add" />
         </LinearLayout>
 
         <View

@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_weight="1"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textColor="@android:color/white"
         android:gravity="center"
         />
@@ -23,19 +23,19 @@
         android:layout_height="100dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textColor="@android:color/white"
         />
 
-    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+    <Button
         android:id="@+id/buttonCount"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_width="0dp"
+        android:text="Add"
+        android:textAllCaps="false"
+        android:background="@drawable/round_edge_button2"
         android:layout_weight="1"
         android:gravity="center"
-        app:backGroundColor="@android:color/holo_green_dark"
-        app:finalNumber="20"
-        >
-    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+        />
 
 </LinearLayout>

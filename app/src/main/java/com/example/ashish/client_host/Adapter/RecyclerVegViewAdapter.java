@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.ashish.client_host.activity.GridRecyclerActivity;
 import com.example.ashish.client_host.fragment.TabVegFragment;
 import com.example.ashish.client_host.util.FragmentUtil;
 import com.example.ashish.pre_booked_hotel.R;
@@ -34,14 +33,6 @@ public class RecyclerVegViewAdapter extends RecyclerView.Adapter<RecyclerVegView
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.setData(position);
-        holder.vegTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                context.startActivity(new Intent(FragmentUtil.getActivity(context),GridRecyclerActivity.class));
-                //Toast.makeText(context,""+position,Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.ashish.client_host.util.SharedPreferences;
 import com.example.ashish.pre_booked_hotel.R;
 
 public class FoodMenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -112,6 +113,11 @@ public class FoodMenuActivity extends AppCompatActivity implements NavigationVie
         else if(id == R.id.myOrder)
         {
             startActivity(new Intent(this,Cart.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            if(SharedPreferences.isEmpty())
+            {
+                startActivity(new Intent(this,FoodMenuActivity.class));
+                Toast.makeText(FoodMenuActivity.this,"Cart is empty! Please select any item",Toast.LENGTH_LONG).show();
+            }
         }
         else if(id == R.id.about)
         {

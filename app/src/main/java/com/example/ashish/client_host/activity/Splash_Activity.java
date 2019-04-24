@@ -19,9 +19,7 @@ public class Splash_Activity extends AppCompatActivity {
     private static final String TAG =Splash_Activity.class.getSimpleName() ;
     private Activity context;
 
-    //String fixssid="\"Vyas\"";
-
-
+    String fixssid="\"android\"";
 
     protected void onCreate(@Nullable Bundle savedInstance)
     {
@@ -31,7 +29,7 @@ public class Splash_Activity extends AppCompatActivity {
         Log.d(TAG, "Ssid "+ssid);
 
      //   Log.d(TAG, "onCreate_a: "+ssid+"__"+fixssid);
-      //  if(fixssid.contains(ssid)) {
+        if(fixssid.contains(ssid)) {
             new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -40,7 +38,7 @@ public class Splash_Activity extends AppCompatActivity {
            }
         },2000);
         }
-    //}
+    }
 
     public String getCurrentSsid(Context context) {
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);

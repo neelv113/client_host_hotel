@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ClientHost</string>
+    <string name="app_name">AutomatedWaiter</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="title_activity_all_eatables">AllEatablesActivity</string>
