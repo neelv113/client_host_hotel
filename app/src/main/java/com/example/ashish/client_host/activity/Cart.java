@@ -53,12 +53,9 @@ public class Cart extends AppCompatActivity {
         removeOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               //  new EatablesAdapter().dataList.clear();
                     SharedPreferences.clear();
                     cartRecyclerView.setAdapter(null);
                     cartRecyclerView.setAdapter(cartAdapter);
-                    //startActivity(new Intent(Cart.this,AllEatablesActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                    //Toast.makeText(Cart.this,"Cart is empty",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -84,11 +81,9 @@ public class Cart extends AppCompatActivity {
                {
                    sendNotification();
                    startActivity(new Intent(Cart.this,FoodMenuActivity.class));
-
                }
            }
        });
-
     }
 
     private void sendNotification() {
@@ -158,7 +153,6 @@ public class Cart extends AppCompatActivity {
                 .addHeader("Authorization", "key=" + "AIzaSyCc8pnR2KhsYshriO4_BztCQeREpx6q1ZQ")
                 .build();
         Response response = mClient.newCall(request).execute();
-//        Log.d(TAG,"response al:"+response+"__"+response.body().string()+"__"+response.body().string());
         return response.body().string();
     }
 

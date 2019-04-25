@@ -85,7 +85,6 @@ public class TabVegFragment extends Fragment{
         recyclerVeg.setAdapter(firebaseRecyclerAdapter);
     }
     private void initViews(View view) {
-        //spinner = view.findViewById(R.id.vegSpinner);
         recyclerVeg = view.findViewById(R.id.recyclerVeg);
         recyclerVeg.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerVegAdapter = new RecyclerVegViewAdapter(this);

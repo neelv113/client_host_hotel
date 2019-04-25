@@ -8,7 +8,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cartRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_above="@id/edtTable">
     </android.support.v7.widget.RecyclerView>
 
     <EditText
@@ -16,7 +17,7 @@
         android:layout_above="@id/removeOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter table number"
+        android:hint="Enter Table Number"
         android:inputType="number"
         android:maxLength="2"
         android:textColorHint="@android:color/white"

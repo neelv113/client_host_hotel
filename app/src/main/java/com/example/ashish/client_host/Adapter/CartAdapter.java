@@ -48,9 +48,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.txtView.setText(dataList[i] + "");
-        viewHolder.txtPrice.setText(dataPirceList[i]+"");
-//        SharedPreferences.putFoodDetailsList(itemDetails.get(i));
+        viewHolder.txtView.setText("Food Name : "+dataList[i] + "");
+        viewHolder.txtPrice.setText("Price : "+dataPirceList[i] + "");
     }
 
     @Override

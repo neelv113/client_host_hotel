@@ -65,7 +65,7 @@ public class EatablesAdapter extends RecyclerView.Adapter<EatablesAdapter.ViewHo
             public void onClick(View view) {
 
                 SharedPreferences.putFoodList(dataList.get(position).getFoodName(), dataList.get(position).getPrice());
-                Toast.makeText(view.getContext(),"Item Added To Cart",Toast.LENGTH_LONG).show();
+                Toast.makeText(view.getContext(),"Item Added To Cart",Toast.LENGTH_SHORT).show();
 
                 for (String key : SharedPreferences.getFoodDetails().keySet()) {
                     ItemDetails itemDetailss = SharedPreferences.getFoodDetails().get(key);

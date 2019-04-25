@@ -97,7 +97,5 @@ public class DrinkOrderActivity extends AppCompatActivity {
     private void initViews() {
         recyclerDrink = findViewById(R.id.recyclerDrink);
         recyclerDrink.setLayoutManager(new LinearLayoutManager(this));
-        //recyclerDrinkAdapter = new RecyclerDrinkAdapter(this);
-        //recyclerDrink.setAdapter(recyclerDrinkAdapter);
     }
 }

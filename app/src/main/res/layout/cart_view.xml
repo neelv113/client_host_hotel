@@ -10,14 +10,15 @@
         android:id="@+id/txtView"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="all cart items"
         android:textColor="@android:color/white"
+        android:textSize="18sp"
         />
 
     <TextView
         android:id="@+id/txtPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
         android:textColor="@android:color/white"/>
     <View
         android:layout_height="2dp"

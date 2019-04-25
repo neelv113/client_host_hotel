@@ -21,14 +21,11 @@ public class Ratings {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference reference = database.getReference("Ratings");
-//        refer = reference.child("users");
         Log.d(TAG, "Ratings: called 1__"+reference);
 
             reference.child("contact").setValue(contact);
             reference.child("rating").setValue(String.valueOf(rating));
 
-//        reference.child("contact").setValue(contact);
-//        reference.child("rating").setValue(String.valueOf(rating));
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
