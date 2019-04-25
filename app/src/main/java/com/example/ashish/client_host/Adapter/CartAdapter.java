@@ -54,6 +54,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
+        if(SharedPreferences.getFoodListName()==null)
+        {
+            return 0;
+        }
+        else
         return SharedPreferences.getFoodListName().size();
     }
 

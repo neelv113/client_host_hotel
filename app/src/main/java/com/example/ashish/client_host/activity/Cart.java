@@ -56,6 +56,8 @@ public class Cart extends AppCompatActivity {
                     SharedPreferences.clear();
                     cartRecyclerView.setAdapter(null);
                     cartRecyclerView.setAdapter(cartAdapter);
+                    startActivity(new Intent(Cart.this,FoodMenuActivity.class));
+
             }
         });
 
